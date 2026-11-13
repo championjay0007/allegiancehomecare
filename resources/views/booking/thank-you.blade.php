@@ -4,17 +4,42 @@
 
 @section('content')
 @php
-    $serviceName = request()->query('service_type') === 'ndis' ? 'NDIS' : 'Support at Home';
+    $serviceType = request()->query('service_type');
+    $serviceName = $serviceType === 'ndis' ? 'NDIS' : 'Support at Home';
+    $messages = [
+        'booking' => [
+            'eyebrow' => $serviceName,
+            'title' => 'Thank you for submitting your form',
+            'message' => 'Your enquiry has been received by Allegiance Heart & Home Care.',
+            'next_step' => 'A care partner will contact you within 1 business day to discuss your needs and next steps.',
+        ],
+        'brochure' => [
+            'eyebrow' => 'Consumer Handbook',
+            'title' => 'Thank you for your request',
+            'message' => 'The Consumer Handbook has been sent to your email address.',
+            'next_step' => 'Please check your inbox, including your junk or spam folder.',
+        ],
+        'pricing' => [
+            'eyebrow' => 'Pricing Schedule',
+            'title' => 'Thank you for your request',
+            'message' => 'Your pricing schedule has been sent to your email address.',
+            'next_step' => 'Please check your inbox, including your junk or spam folder.',
+        ],
+    ];
+    $formType = request()->query('type');
+    $confirmation = is_string($formType) && isset($messages[$formType])
+        ? $messages[$formType]
+        : $messages['booking'];
 @endphp
 <section class="thank-you-page" aria-labelledby="thank-you-title">
     <div class="thank-you-content">
         <div class="thank-you-icon" aria-hidden="true">
             <i class="fas fa-check"></i>
         </div>
-        <p class="thank-you-eyebrow">{{ $serviceName }}</p>
-        <h1 id="thank-you-title">Thank you for your enquiry</h1>
-        <p>Your enquiry has been received by Allegiance Heart &amp; Home Care.</p>
-        <p>A member of our intake team will contact you to discuss your {{ $serviceName }} needs and next steps.</p>
+        <p class="thank-you-eyebrow">{{ $confirmation['eyebrow'] }}</p>
+        <h1 id="thank-you-title">{{ $confirmation['title'] }}</h1>
+        <p>{{ $confirmation['message'] }}</p>
+        <p>{{ $confirmation['next_step'] }}</p>
         <div class="thank-you-urgent">
             <p>If your enquiry is urgent, please call us on</p>
             <a class="thank-you-phone" href="tel:0287309049">02 8730 9049</a>

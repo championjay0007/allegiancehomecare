@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use App\Models\ServiceRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ServiceRequestReceived;
@@ -73,9 +74,15 @@ const GENDER_OPTIONS = [
         Mail::to($validated['email'])->send(new ServiceRequestReceived($serviceRequest));
 
         // Notification email to admin
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new NewServiceRequestNotification($serviceRequest));
+        Mail::to(config('mail.from.address'))->send(new NewServiceRequestNotification($serviceRequest));
 
-     return response()->json(['success' => true]);
+     return response()->json([
+         'success' => true,
+         'redirect' => route('booking.thank-you', [
+             'type' => 'booking',
+             'service_type' => $validated['service_type'],
+         ]),
+     ]);
 
     } catch (ValidationException $e) {
         return response()->json([

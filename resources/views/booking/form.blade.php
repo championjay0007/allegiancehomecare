@@ -894,16 +894,20 @@ textarea {
                 body: formData
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+                return response.json().then(data => ({ response, data }));
             })
-            .then(data => {
+            .then(({ response, data }) => {
+                if (!response.ok) {
+                    if (response.status === 422 && data.errors) {
+                        showFormErrors(data.errors);
+                        return;
+                    }
+
+                    throw new Error(data.message || 'Network response was not ok');
+                }
+
                 if (data.success) {
-                    const thankYouUrl = new URL(@json(route('booking.thank-you')), window.location.origin);
-                    thankYouUrl.searchParams.set('service_type', formData.get('service_type'));
-                    window.location.assign(thankYouUrl);
+                    window.location.assign(data.redirect);
                 } else {
                     showFormErrors(data.errors || {});
                 }

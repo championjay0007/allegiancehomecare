@@ -60,7 +60,7 @@ class BrochureController extends Controller
         // Mark email as sent
         $brochureRequest->update(['email_sent' => true]);
 
-        return back()->with('success', 'Brochure has been sent to your email!');
+        return redirect()->route('booking.thank-you', ['type' => 'brochure']);
     }
     
     public function submit(Request $request)
@@ -113,6 +113,6 @@ class BrochureController extends Controller
         // Mark email as sent
         $pricingRequest->update(['email_sent' => true]);
         
-        return back()->with('success', 'Pricing schedule has been sent to your email!');
+        return redirect()->route('booking.thank-you', ['type' => 'pricing']);
     }
 }
