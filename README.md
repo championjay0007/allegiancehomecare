@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Deploying from cPanel
+
+Keep the cPanel Git checkout on the `main` branch and configure its production `.env` file. Point the domain's document root to the checkout's `public` directory; do not expose the application root or `.env` publicly. Back up the production database before deployment.
+
+After pushing changes to GitHub, run this from cPanel Terminal in the checkout:
+
+```bash
+bash ./deploy-cpanel.sh
+```
+
+The script fetches and fast-forwards from `origin/main`, installs production Composer dependencies, builds the Vite assets, runs database migrations, refreshes Laravel's config and view caches, and exits maintenance mode even if deployment fails after maintenance mode was enabled. It refuses to deploy if the checkout has local changes or is not on `main`. It does not replace `.env` or delete uploaded files.
+
+The cPanel account needs Git, PHP 8.2+, Composer, and Node.js/npm available in its shell. If cPanel uses a versioned PHP binary, specify it when running the script, for example `PHP_BIN=ea-php82 bash ./deploy-cpanel.sh`. Never put GitHub credentials in the script.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
