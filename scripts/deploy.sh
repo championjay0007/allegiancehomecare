@@ -1,25 +1,24 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-APP_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="$(cd -- "$SCRIPT_DIR/.." && pwd)"
+DEPLOY_BRANCH="${DEPLOY_BRANCH:-main}"
 PHP_BIN="${PHP_BIN:-php}"
 COMPOSER_BIN="${COMPOSER_BIN:-composer}"
 NPM_BIN="${NPM_BIN:-npm}"
 
-if ! command -v "$PHP_BIN" >/dev/null 2>&1; then
-    printf 'Error: PHP executable not found: %s\n' "$PHP_BIN" >&2
+if ! git check-ref-format --branch "$DEPLOY_BRANCH" >/dev/null 2>&1; then
+    printf 'Error: invalid deployment branch: %s\n' "$DEPLOY_BRANCH" >&2
     exit 1
 fi
 
-if ! command -v "$COMPOSER_BIN" >/dev/null 2>&1; then
-    printf 'Error: Composer executable not found: %s\n' "$COMPOSER_BIN" >&2
-    exit 1
-fi
-
-if ! command -v "$NPM_BIN" >/dev/null 2>&1; then
-    printf 'Error: npm executable not found: %s\n' "$NPM_BIN" >&2
-    exit 1
-fi
+for executable in "$PHP_BIN" "$COMPOSER_BIN" "$NPM_BIN"; do
+    if ! command -v "$executable" >/dev/null 2>&1; then
+        printf 'Error: required executable not found: %s\n' "$executable" >&2
+        exit 1
+    fi
+done
 
 if [[ ! -f "$APP_DIR/.env" ]]; then
     printf 'Error: .env is missing. Configure the production environment before deploying.\n' >&2
@@ -28,18 +27,19 @@ fi
 
 cd "$APP_DIR"
 
-if [[ "$(git branch --show-current)" != "main" ]]; then
-    printf 'Error: deploy-cpanel.sh must run from the main branch checkout.\n' >&2
+if [[ "$(git branch --show-current)" != "$DEPLOY_BRANCH" ]]; then
+    printf 'Error: checkout branch (%s) does not match DEPLOY_BRANCH (%s).\n' \
+        "$(git branch --show-current)" "$DEPLOY_BRANCH" >&2
     exit 1
 fi
 
 if [[ -n "$(git status --porcelain --untracked-files=normal)" ]]; then
-    printf 'Error: the checkout has local changes. Preserve or commit them before deploying.\n' >&2
+    printf 'Error: checkout has local changes. Stash or commit them before deploying.\n' >&2
     exit 1
 fi
 
-git fetch origin main
-git merge --ff-only origin/main
+git fetch origin "$DEPLOY_BRANCH"
+git merge --ff-only "origin/$DEPLOY_BRANCH"
 
 maintenance_enabled=0
 
@@ -80,4 +80,5 @@ maintenance_enabled=1
 maintenance_enabled=0
 trap - EXIT
 
-printf 'Deployment complete at commit %s.\n' "$(git rev-parse --short HEAD)"
+printf 'Deployment complete at commit %s on branch %s.\n' \
+    "$(git rev-parse --short HEAD)" "$DEPLOY_BRANCH"

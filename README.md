@@ -9,15 +9,23 @@
 
 ## Deploying from cPanel
 
-To update the website, open cPanel Terminal and run this one-line command, replacing the example path with the folder where you cloned this repository:
+To update the website, open cPanel Terminal in the repository folder and run:
 
 ```bash
-cd /home/CPANELUSER/allegiancehomecare && bash ./deploy-cpanel.sh
+cd ~/public_html
+DEPLOY_BRANCH=main ./scripts/deploy.sh
 ```
 
-The cPanel folder must already contain the Git checkout on the `main` branch, with its production `.env` configured and no uncommitted changes. The script fetches the latest code from GitHub, installs production dependencies, builds the assets, runs database migrations, and refreshes Laravel's caches. It does not replace `.env` or delete uploaded files.
+If you have a local edit to preserve before the update, stash that file first. For example, if this path exists in your cPanel checkout:
 
-The cPanel account needs Git, PHP 8.2+, Composer, and Node.js/npm available in Terminal. If cPanel uses a versioned PHP command, use `PHP_BIN=ea-php82` before `bash ./deploy-cpanel.sh`. Back up the production database before deploying migrations. Keep the domain's document root pointed at the checkout's `public` folder.
+```bash
+git stash push -m "preserve support-at-home page before deploy" -- resources/views/public/pages/support-at-home.blade.php
+DEPLOY_BRANCH=main ./scripts/deploy.sh
+```
+
+Only use the stash command if that file path exists and has local changes; change it to the correct path for your checkout. The stashed edit is saved in Git's stash and is not reapplied automatically. The deployment script requires the current checkout to be on the selected branch, and stops if other unstashed local changes remain.
+
+The script fetches the latest code from GitHub, installs production dependencies, builds the assets, runs database migrations, and refreshes Laravel's caches. It does not replace `.env` or delete uploaded files. cPanel needs Git, PHP 8.2+, Composer, and Node.js/npm in Terminal. If cPanel uses a versioned PHP command, run `PHP_BIN=ea-php82 DEPLOY_BRANCH=main ./scripts/deploy.sh`. Back up the production database before deploying migrations. Keep the domain's document root pointed at the checkout's `public` folder.
 
 ## About Laravel
 
