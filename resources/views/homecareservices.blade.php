@@ -977,26 +977,29 @@
 
     <script>
         // Smooth scroll for navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
+        const servicesNavLinks = document.querySelectorAll('.services-nav .nav-link');
+
+        servicesNavLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                servicesNavLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
                 
                 // Scroll to section
                 const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(targetId);
+
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
         // Update active nav link on scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.service-section');
-            const navLinks = document.querySelectorAll('.nav-link');
             
             let current = '';
             
@@ -1009,7 +1012,7 @@
                 }
             });
             
-            navLinks.forEach(link => {
+            servicesNavLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
