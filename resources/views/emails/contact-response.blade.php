@@ -1,12 +1,12 @@
 @component('mail::layout')
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-{{ config('app.name') }} - Response to Your Inquiry
+{{ config('app.name') }} - Response to Your Enquiry
 @endslot
 @endcomponent
 
 @component('mail::panel', ['color' => '#1DBFAD'])
-<h1 style="color: #1DBFAD; text-align: center;">Response to Your Inquiry</h1>
+<h1 style="color: #1DBFAD; text-align: center;">Response to Your Enquiry</h1>
 @endcomponent
 
 <p style="font-size: 16px; line-height: 1.6; color: #1A1A1A;">
@@ -15,7 +15,7 @@
 
 <p style="font-size: 16px; line-height: 1.6; color: #1A1A1A;">
     Thank you for contacting us on {{ $contact->created_at->format('F j, Y') }}. 
-    Here's our response to your inquiry:
+    Here's our response to your enquiry:
 </p>
 
 @component('mail::panel', ['color' => '#F8F9FA'])

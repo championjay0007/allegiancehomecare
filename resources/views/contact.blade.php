@@ -664,7 +664,7 @@
 <!--                <i class="fas fa-map-marker-alt"></i>-->
 <!--                <h3>Visit Us</h3>-->
 <!--                <p>Address: 25 Restwell street , Bankstown 2200 NSW <br>-->
-<!--Address 2: 233 Castlereagh Street, Sydney 2000 NSW <br> Adress 3: 1-3 Metro Parade, Mawson Lakes, 5095 Adelaide, South Australia</p>-->
+<!--Address 2: 233 Castlereagh Street, Sydney 2000 NSW <br> Address 3: 1-3 Metro Parade, Mawson Lakes, 5095 Adelaide, South Australia</p>-->
               
 <!--            </div>-->
         </div>

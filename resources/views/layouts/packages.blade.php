@@ -335,7 +335,7 @@
                         <i class="fas fa-phone"></i> Call 02 8730 9049
                     </a>
                     <a href="mailto:admin@allegiancehearthomecare.com.au" class="email-cta">
-                        <i class="fas fa-envelope"></i> Email Inquiry
+                        <i class="fas fa-envelope"></i> Email Enquiry
                     </a>
                 </div>
             </div>
