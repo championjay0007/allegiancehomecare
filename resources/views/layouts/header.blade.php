@@ -578,7 +578,7 @@
     <!-- Main Navigation -->
     <div class="main-header">
         <div class="nav-container">
-            <a href="/" class="logo-container">
+            <a href="{{ route('home') }}" class="logo-container">
                 <img src="{{asset('images/logo.jpg')}}" alt="Allegiance Care" class="logo-img">
                 <span class="logo-text">Allegiance Heart & Home Care</span>
             </a>
@@ -587,7 +587,7 @@
             <nav class="desktop-nav">
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Home</a>
+                        <a href="{{ route('home') }}" class="nav-link">Home</a>
                     </li>
 <li class="nav-item">
                         <a href="{{ url('/aboutpage') }}" class="nav-link">About Us</a>
@@ -688,11 +688,7 @@
 
 
             <li class="mobile-item">
-                <a href="#" class="mobile-link">Home</a>
-            </li>
-            
-             <li class="mobile-item">
-                <a href="#" class="mobile-link">Home</a>
+                <a href="{{ route('home') }}" class="mobile-link">Home</a>
             </li>
             
             <li class="mobile-item">
