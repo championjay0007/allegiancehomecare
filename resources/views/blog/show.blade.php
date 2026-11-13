@@ -1,5 +1,7 @@
 @extends('layouts.care')
 
+@section('title', $post->title . ' | Allegiance Heart & Home Care')
+
 @section('content')
 
 <style>

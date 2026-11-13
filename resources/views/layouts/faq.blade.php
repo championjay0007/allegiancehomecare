@@ -2,7 +2,7 @@
     <div class="container">
         <div class="fsection-header">
             <h2>Frequently Asked Questions</h2>
-            <p class="fsection-description">Navigating aged care and disability support can feel complex. Our FAQs provide clear guidance for both NDIS participants and Support at Home Package consumers.</p>
+            <p class="fsection-description">Navigating aged care and disability support can feel complex. Our FAQs provide clear guidance for NDIS participants and Support at Home consumers.</p>
         </div>
 
         <div class="faq-tabs">
@@ -38,8 +38,8 @@
                         <div class="faq-answer">
                             <p>We support:</p>
                             <ul>
-                                <li>Older Australians with Support at Home Packages (HCP Levels 1–8)</li>
-                                <li>Seniors awaiting their package (interim support)</li>
+                                <li>Older Australians receiving or seeking Support at Home funding</li>
+                                <li>Seniors awaiting an aged care assessment or funding decision</li>
                                 <li>NDIS participants (self-managed and plan-managed)</li>
                                 <li>Carers or family members arranging care on someone's behalf</li>
                             </ul>
@@ -47,9 +47,9 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">Are your services available Australia-wide?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">Where are your services available?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Yes. We provide services across all states and territories in Australia. Our care teams are located in major cities and regional areas.</p>
+                            <p>Allegiance Heart &amp; Home Care currently provides services across New South Wales, Victoria and South Australia. Availability depends on the service and location.</p>
                         </div>
                     </div>
 
@@ -58,9 +58,9 @@
                         <div class="faq-answer">
                             <p>You can start by:</p>
                             <ul>
-                                <li>Calling us on 0410 299 570</li>
-                                <li>Emailing info@allegiancehearthomecare.com.au</li>
-                                <li>Filling in our website enquiry or "Submit an Enqiry" form</li>
+                                <li>Calling our offices: NSW 02 8730 9049, Victoria 03 7034 6513 or South Australia 08 6102 2501</li>
+                                <li>Emailing admin@allegiancehearthomecare.com.au</li>
+                                <li>Filling in our website enquiry form</li>
                             </ul>
                             <p>We'll arrange a consultation and guide you through the next steps, whether that's service onboarding, assessment support, or understanding your funding.</p>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="faq-answer">
                             <p>Absolutely. We can:</p>
                             <ul>
-                                <li>Help you apply for a My Aged Care assessment (ACAT)</li>
+                                <li>Explain the aged care needs assessment process through My Aged Care and the Single Assessment System</li>
                                 <li>Explain the NDIS access process</li>
                                 <li>Connect you with GP or allied health referrals</li>
                                 <li>Support you to prepare documentation</li>
@@ -119,7 +119,7 @@
                             <p>You can:</p>
                             <ul>
                                 <li>Use the website contact form</li>
-                                <li>Email info@allegiancehearthomecare.com.au</li>
+                                <li>Email admin@allegiancehearthomecare.com.au</li>
                                 <li>Call us directly</li>
                             </ul>
                             <p>All feedback is treated seriously and confidentially. You can remain anonymous if preferred.</p>
@@ -132,15 +132,15 @@
                 <div class="faq-accordion">
                     <!-- NDIS Questions -->
                     <div class="faq-item">
-                        <button class="faq-question">Who is eligible for NDIS services?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">Who is eligible for the NDIS?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>To access NDIS supports, you must:</p>
+                            <p>To apply for the NDIS, a person must generally:</p>
                             <ul>
-                                <li>Be under 65 years old</li>
-                                <li>Have a permanent and significant disability</li>
-                                <li>Be an Australian citizen or permanent resident</li>
+                                <li>Be younger than 65 when they apply</li>
+                                <li>Live in Australia</li>
+                                <li>Be an Australian citizen, permanent resident or Protected Special Category Visa holder</li>
+                                <li>Meet the NDIS disability requirements, early intervention requirements, or both</li>
                             </ul>
-                            <p>We can guide you through the application if needed.</p>
                         </div>
                     </div>
 
@@ -182,7 +182,7 @@
                     <div class="faq-item">
                         <button class="faq-question">How quickly can services commence?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>In many cases, we can commence services within 2–5 business days of receiving your request and required documents. Emergency or urgent requests are prioritised.</p>
+                            <p>Where we have capacity, services can often commence promptly following completion of intake, funding verification, care planning and any required service arrangements.</p>
                         </div>
                     </div>
 
@@ -217,23 +217,23 @@
                 <div class="faq-accordion">
                     <!-- Home Care Questions -->
                     <div class="faq-item">
-                        <button class="faq-question">What is a Support at Home Package?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">What is Support at Home?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>A Support at Home Package is a government-funded program that provides support services to help older Australians live independently in their own homes. The packages are tailored to individual care needs across four levels, ranging from basic to high-level support.</p>
+                            <p>Support at Home provides coordinated support for older people with assessed aged care needs. It provides ongoing funding through eight classifications, alongside separate short-term pathways for Assistive Technology and Home Modifications, Restorative Care, and End-of-Life Care.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">How do I know which package level I need?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">How do I know which Support at Home classification I need?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>An Aged Care Assessment Team (ACAT) will assess your care needs and assign a suitable package level. Allegiance can assist you in organising this assessment and guiding you through the process.</p>
+                            <p>Your Support at Home eligibility, approved services and classification are determined through an aged care needs assessment arranged through My Aged Care under the Single Assessment System. If your care needs change, you can request a review or reassessment.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">What services can I receive under a Support at Home Package?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">What services can I receive through Support at Home?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Depending on your level, services may include personal care, nursing, physiotherapy, domestic help, transport, meal preparation, and social support. All services are customised based on your care plan.</p>
+                            <p>Approved services may include personal care, nursing, physiotherapy, domestic assistance, transport, meal preparation and social support. The services you receive depend on your assessed needs and Support Plan, not your classification number alone.</p>
                         </div>
                     </div>
 
@@ -254,28 +254,28 @@
                     <div class="faq-item">
                         <button class="faq-question">What if my needs change over time?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Your care plan is regularly reviewed. If your condition changes, we'll help you apply for a reassessment to upgrade your package level.</p>
+                            <p>If your care needs change, you can request a review or reassessment through My Aged Care. Your approved services and classification are determined through the aged care needs assessment process.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question">Can Allegiance help with emergency or short-term care?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Yes. While Support at Home Packages are designed for ongoing care, we also support interim, transitional, or palliative care depending on availability.</p>
+                            <p>Support at Home includes separate short-term pathways for Restorative Care and End-of-Life Care, subject to eligibility, approved funding and service availability. Allegiance Heart &amp; Home Care is not an emergency service.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">How soon can services start after I'm approved?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">How quickly can Support at Home services commence?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Once your package is assigned and Allegiance is your chosen provider, we can typically commence services within a few days.</p>
+                            <p>Where we have capacity, services can often commence promptly following completion of intake, funding verification, care planning and any required service arrangements.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">Do you serve clients across all of Australia?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">Where does Allegiance currently provide services?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Yes. Allegiance Heart & Home Care supports eligible clients throughout all Australian states and territories.</p>
+                            <p>Allegiance Heart &amp; Home Care currently provides services across New South Wales, Victoria and South Australia. Availability depends on the service and location.</p>
                         </div>
                     </div>
 
@@ -287,11 +287,11 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">How do I apply for a Support at Home Package?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">How do I apply for Support at Home?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
                             <p>Apply via My Aged Care by calling 1800 200 422 or online. We can assist with:</p>
                             <ul>
-                                <li>Booking your ACAT assessment</li>
+                                <li>Arranging an aged care needs assessment through My Aged Care under the Single Assessment System</li>
                                 <li>Preparing relevant documentation</li>
                                 <li>Liaising with family or advocates on your behalf</li>
                             </ul>
@@ -299,19 +299,17 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">What's the difference between CHSP and Support at Home Packages?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">What's the difference between CHSP and Support at Home?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <ul>
-                                <li>CHSP (Commonwealth Home Support Programme) provides short-term, entry-level support</li>
-                                <li>HCPs (Support at Home Packages) offer long-term, comprehensive care across four funding levels</li>
-                            </ul>
+                            <p>The Commonwealth Home Support Programme (CHSP) provides entry-level aged care support to older people who need some assistance to continue living independently at home.</p>
+                            <p>Support at Home provides coordinated support for people with more complex needs and has eight ongoing funding classifications.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">What services are included in a Support at Home Package?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">What services are included in Support at Home?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Based on your level, services may include:</p>
+                            <p>Depending on your assessed needs and Support Plan, services may include:</p>
                             <ul>
                                 <li>Personal and clinical care</li>
                                 <li>Respite</li>
@@ -324,21 +322,18 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">Can I upgrade my package level?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">Can I request a reassessment?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Yes. If your needs increase, we can help you request a reassessment to move to a higher level.</p>
+                            <p>If your care needs change, you can request a review or reassessment through My Aged Care. The assessment determines your eligibility, approved services and classification.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">Will I be asked to pay any fees?<i class="fas fa-chevron-down"></i></button>
+                        <button class="faq-question">Will I need to contribute towards my Support at Home services?<i class="fas fa-chevron-down"></i></button>
                         <div class="faq-answer">
-                            <p>Potential fees include:</p>
-                            <ul>
-                                <li>Income-tested care fees (based on income)</li>
-                                <li>Basic daily fee (Allegiance currently does not charge this)</li>
-                            </ul>
-                            <p>We provide a transparent fee schedule before services commence.</p>
+                            <p>Most participants contribute towards the cost of Independence and Everyday Living services. The amount depends on the type of service and the participant's individual financial circumstances, as assessed by Services Australia.</p>
+                            <p>There is no participant contribution for Clinical Supports, including nursing, physiotherapy and approved personal care.</p>
+                            <p>Allegiance will explain applicable service prices and participant contributions before services commence.</p>
                         </div>
                     </div>
 

@@ -471,7 +471,7 @@ with dignity, independence, and confidence at home and in the community.</p>
                     <li><a href="/accessibility">Accessibility Statement</a></li>
                     <li><a href="https://www.agedcarequality.gov.au/for-providers/code-conduct" target="_blank">Aged Care Code of Conduct</a></li>
                     <li><a href="https://www.ndiscommission.gov.au/rules-and-standards/ndis-code-conduct" target="_blank">NDIS Code of Conduct</a></li>
-                    <li><a href="https://www.agedcarequality.gov.au/older-people/statement-rights" target="_blank">Statement of Right</a></li>
+                    <li><a href="https://www.agedcarequality.gov.au/older-people/statement-rights" target="_blank">Statement of Rights</a></li>
                 </ul>
             </div>
         </div>
@@ -527,7 +527,7 @@ with dignity, independence, and confidence at home and in the community.</p>
     <!-- Footer Bottom -->
     <div class="footer-bottom">
         <div class="footer-legal">
-            <p>&copy; 2025 Allegiance Heart & Home Care. All rights reserved.</p>
+            <p>&copy; {{ now()->year }} Allegiance Heart & Home Care. All rights reserved.</p>
             <div class="footer-badges">
                 <img src="{{ asset('images/accreditation-badge.png') }}" alt="Accredited Care Provider" loading="lazy">
                 <img src="{{ asset('images/ndis-badge.png') }}" alt="NDIS Registered Provider" loading="lazy">

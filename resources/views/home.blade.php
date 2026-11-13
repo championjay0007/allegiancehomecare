@@ -1,7 +1,7 @@
 
 @extends('layouts.care')
 
-@section('title', 'Home')
+@section('title', 'Support at Home & NDIS Provider | NSW, VIC & SA | Allegiance Heart & Home Care')
 
 @section('content')
 <style>
@@ -1949,10 +1949,11 @@ body {
 Support at Home Services</h1>
             <p class="hero-subtitle">
                 Delivering compassionate, professional support tailored to your unique needs. At
-Allegiance, we empower individuals and families to live with dignity, independence,
-and confidence every step of the way. From 1 November 2025, the Support at Home Program replaced the current Home Care Packages (HCP) system. Allegiance Heart & Home Care is approved to deliver services under the new program, supporting older Australians to stay independent, healthy, and connected at home.
-There are eight Support at Home classifications, each linked to a different level of need and funding. Consumers currently on HCP Level 1–4 will automatically transition to the new program with equivalent funding.
-
+            Allegiance, we empower individuals and families to live with dignity, independence,
+            and confidence every step of the way. Support at Home replaced the former Home Care
+            Packages Program on 1 November 2025. People who transitioned from the former program
+            retained an equivalent Transitioned HCP funding level. They may remain on Transitioned
+            HCP Levels 1–4 unless reassessed and approved for a Support at Home classification.
             </p>
             
             <div class="hero-actions">
@@ -2024,7 +2025,7 @@ There are eight Support at Home classifications, each linked to a different leve
             <div class="about-content">
                 <div class="about-text">
                     <h3>Compassionate Care with Professional Excellence</h3>
-                    <p>At Allegiance Health and Support at Home Services, our team of qualified care
+                    <p>At Allegiance Heart &amp; Home Care, our team of qualified care
 professionals delivers a wide range of personalised services under both NDIS and
 Support at Home. We empower individuals to live independently, safely, and with dignity.
 As a trusted and vetted provider, you can count on us for care that makes a real

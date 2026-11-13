@@ -1,6 +1,10 @@
 @extends('layouts.care')
 
-@section('title', 'Service Details - ' . $service->title)
+@section('title', str_contains(strtolower($service->slug . ' ' . $service->title), 'self-management')
+    ? 'Self-Managed Support at Home | Allegiance Heart & Home Care'
+    : (str_contains(strtolower($service->slug . ' ' . $service->title), 'domestic assistance')
+        ? 'Domestic Assistance for Older Australians | Allegiance Heart & Home Care'
+        : $service->title . ' | Allegiance Heart & Home Care'))
 
 @section('content')
 <style>

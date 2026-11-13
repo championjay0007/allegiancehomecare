@@ -1257,8 +1257,10 @@
                             <p>Our NDIS services are available to:</p>
                             <ul>
                                 <li>NDIS participants with approved plans (self-managed, plan-managed or agency-managed)</li>
-                                <li>Individuals under 65 years old with permanent and significant disability</li>
-                                <li>Australian citizens or permanent residents</li>
+                                <li>People younger than 65 when they apply</li>
+                                <li>People who live in Australia</li>
+                                <li>Australian citizens, permanent residents or Protected Special Category Visa holders</li>
+                                <li>People who meet the NDIS disability requirements, early intervention requirements, or both</li>
                                 <li>People with NDIS plans that include the specific supports we provide</li>
                             </ul>
                         </div>
@@ -1266,11 +1268,11 @@
 
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>Are your services available Australia-wide?</h3>
+                            <h3>Where are your services available?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Yes, we provide NDIS services across all states and territories in Australia. Our care teams are located in major cities and many regional areas. Service availability may vary in some remote locations - please contact us to check availability in your specific area.</p>
+                            <p>Allegiance Heart &amp; Home Care currently provides services across New South Wales, Victoria and South Australia. Availability depends on the service and location.</p>
                         </div>
                     </div>
 
@@ -1321,14 +1323,14 @@
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>To access NDIS supports through Allegiance, you must:</p>
+                            <p>To apply for the NDIS, a person must generally:</p>
                             <ul>
-                                <li>Be under 65 years old when first accessing the scheme</li>
-                                <li>Have a permanent and significant disability that affects your ability to take part in everyday activities</li>
-                                <li>Be an Australian citizen, permanent resident, or hold a Protected Special Category Visa</li>
-                                <li>Live in Australia where the NDIS is available</li>
-                                <li>Have an approved NDIS plan that includes the supports you're requesting</li>
+                                <li>Be younger than 65 when they apply</li>
+                                <li>Live in Australia</li>
+                                <li>Be an Australian citizen, permanent resident or Protected Special Category Visa holder</li>
+                                <li>Meet the NDIS disability requirements, early intervention requirements, or both</li>
                             </ul>
+                            <p>To receive services through Allegiance, you also need an approved NDIS plan that includes the supports you are requesting.</p>
                         </div>
                     </div>
 
@@ -1383,7 +1385,7 @@
                             <p>Our typical onboarding timeline:</p>
                             <ul>
                                 <li><strong>Standard cases:</strong> 2-5 business days after receiving your request and documents</li>
-                                <li><strong>Urgent cases:</strong> We prioritize and can often start within 24 hours</li>
+                                <li>Where we have capacity, services can often commence promptly following completion of intake, funding verification, care planning and any required service arrangements.</li>
                                 <li><strong>Complex cases:</strong> May take up to 7 days to ensure proper setup</li>
                             </ul>
                             <p>Factors affecting timing:</p>

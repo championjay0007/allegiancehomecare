@@ -1,7 +1,7 @@
 
 @extends('layouts.care')
 
-@section('title', 'Home')
+@section('title', 'Contact | Allegiance Heart & Home Care')
 
 @section('content')
 
@@ -655,7 +655,7 @@
             <div class="contact-card">
                 <i class="fas fa-envelope"></i>
                 <h3>Email Us</h3>
-                <a href="mailto:admin@allegiancehearthomecare.com.au/">admin@allegiancehearthomecare
+                <a href="mailto:admin@allegiancehearthomecare.com.au">admin@allegiancehearthomecare
                 .com.au</a>
                 
             </div>
@@ -1085,7 +1085,7 @@
                     <i class="fas fa-exclamation-triangle"></i>
                     <div class="emergency-content">
                         <h4>Emergency Support</h4>
-                        <p>24/7 emergency services available. Call:<b>000</b> </p>
+                        <p>If you or someone else is in immediate danger or requires urgent medical assistance, call <b>000</b>. Allegiance Heart &amp; Home Care is not an emergency service.</p>
                     </div>
                 </div>
             </div>

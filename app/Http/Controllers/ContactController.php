@@ -19,12 +19,7 @@ class ContactController extends Controller
             'Sunday' => 'Closed'
         ];
 
-        $emergencyContact = [
-            'phone' => '+1 (234) 567-8910',
-            'available' => '24/7'
-        ];
-
-        return view('contact', compact('businessHours', 'emergencyContact'));
+        return view('contact', compact('businessHours'));
     }
 
     public function send(Request $request)

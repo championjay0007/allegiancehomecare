@@ -98,7 +98,7 @@ class ServiceRequestResource extends Resource
                         Forms\Components\TextInput::make('ndis_number')
                             ->visible(fn (Forms\Get $get) => $get('service_type') === 'ndis'),
                         Forms\Components\TextInput::make('hcp_id')
-                            ->label('Home Care Package ID')
+                            ->label('Aged Care ID')
                             ->visible(fn (Forms\Get $get) => $get('service_type') === 'home_care'),
                     ])->columns(2),
                 

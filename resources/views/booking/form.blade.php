@@ -12,7 +12,7 @@
                 <h3><i class="fas fa-check-circle"></i> Eligible Users</h3>
                 <ul>
                     <li>NDIS Participants (self/plan-managed)</li>
-                    <li> Support at Home Package Consumers (Level 1-8)</li>
+                    <li>Support at Home participants (Classifications 1–8)</li>
                     <li>Family Members/Carers of eligible clients</li>
                     <li>Support Coordinators/Case Managers</li>
                     <li>Prospective clients checking eligibility</li>
@@ -21,7 +21,7 @@
             <div class="eligibility-group not-eligible">
                 <h3><i class="fas fa-times-circle"></i> Not Eligible</h3>
                 <ul>
-                    <li>Non-NDIS/HCP individuals</li>
+                    <li>Non-NDIS / non-Support at Home enquiries</li>
                     <li>Business partnership inquiries</li>
                     <li>Job seekers (use Careers page)</li>
                 </ul>
@@ -65,8 +65,8 @@
                         <div class="service-icon">
                             <i class="fas fa-home"></i>
                         </div>
-                        <h3>Support at Home Package</h3>
-                        <p>For older Australians with government-funded Home Care Packages</p>
+                        <h3>Support at Home</h3>
+                        <p>For older Australians receiving or seeking Support at Home funding</p>
                     </label>
                 </div>
                 
@@ -157,7 +157,7 @@
                 </div>
                 
                 <div class="form-group" id="hcp_id_container">
-                    <label for="hcp_id">Home Care Package ID (if applicable)</label>
+                    <label for="hcp_id">Aged Care ID (if applicable)</label>
                     <input type="text" id="hcp_id" name="hcp_id">
                 </div>
                 

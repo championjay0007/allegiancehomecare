@@ -7,7 +7,7 @@
         
         <div class="carousel-header">
             <h2>Voices of Satisfaction</h2>
-            <p class="subtitle">Trusted by amazing clients worldwide</p>
+            <p class="subtitle">Trusted by clients and families across our service communities</p>
         </div>
         
         <div class="testimonial-slides">

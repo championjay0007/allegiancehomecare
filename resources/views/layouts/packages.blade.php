@@ -1,24 +1,27 @@
 <section class="home-care-packages" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
         <div class="section-intro">
-            <span class="badge">Our Care Levels</span>
-            <h2>Personalized <span class="highlight">Support at Home Program | Home Care Packages (Levels 1–8) </span> | Allegiance Heart & Home Care</h2>
-            <p class="subtitle">Eight levels of professional care tailored to individual needs</p>
+            <span class="badge">Support at Home Classifications</span>
+            <h2>Support at Home Funding Classifications 1–8</h2>
+            <p class="subtitle">Eight ongoing funding classifications. Annual funding amounts current from 1 October 2026.</p>
             <p class="motto">"Compassion you can trust, care you deserve."</p>
+            <p class="subtitle"><strong>Important:</strong> Your classification is determined through an aged care needs assessment. The services you receive depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
+            <p class="subtitle"><strong>Care management:</strong> 10% of an ongoing Support at Home participant's quarterly budget is allocated to care management.</p>
+            <p class="subtitle">People who transitioned from the former Home Care Packages Program retained an equivalent Transitioned HCP funding level. They may remain on Transitioned HCP Levels 1–4 unless reassessed and approved for a Support at Home classification.</p>
         </div>
 
         <div class="package-grid">
-            <!-- Level 1 -->
+            <!-- Classification 1 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #1DBFAD">Level 1</span>
-                    <h3 class="package-price">$10,731</h3>
-                    <p class="package-subtitle">Basic Care</p>
+                    <span class="level-indicator" style="background: #1DBFAD">Classification 1</span>
+                    <h3 class="package-price">$11,031.56</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Basic domestic help</li>
-                    <li><i class="fas fa-check"></i> Companionship</li>
-                    <li><i class="fas fa-check"></i> Safety checks</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level1')">
@@ -28,17 +31,17 @@
                 </div>
             </div>
 
-            <!-- Level 2 -->
+            <!-- Classification 2 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #00A0C6">Level 2</span>
-                    <h3 class="package-price">$16,034</h3>
-                    <p class="package-subtitle">Low Care</p>
+                    <span class="level-indicator" style="background: #00A0C6">Classification 2</span>
+                    <h3 class="package-price">$16,483.55</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Personal care assistance</li>
-                    <li><i class="fas fa-check"></i> Meal preparation</li>
-                    <li><i class="fas fa-check"></i> Transport support</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level2')">
@@ -48,18 +51,18 @@
                 </div>
             </div>
 
-            <!-- Level 3 (Featured) -->
+            <!-- Classification 3 (Featured) -->
             <div class="package-card featured">
                 <div class="popular-tag">Most Popular</div>
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #004E92">Level 3</span>
-                    <h3 class="package-price">$21,966</h3>
-                    <p class="package-subtitle">Intermediate Care</p>
+                    <span class="level-indicator" style="background: #004E92">Classification 3</span>
+                    <h3 class="package-price">$22,580.90</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Daily personal care</li>
-                    <li><i class="fas fa-check"></i> Medication prompting</li>
-                    <li><i class="fas fa-check"></i> Ongoing support</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level3')">
@@ -69,17 +72,17 @@
                 </div>
             </div>
 
-            <!-- Level 4 -->
+            <!-- Classification 4 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #1A1A1A">Level 4</span>
-                    <h3 class="package-price">$29,696</h3>
-                    <p class="package-subtitle">High Care</p>
+                    <span class="level-indicator" style="background: #1A1A1A">Classification 4</span>
+                    <h3 class="package-price">$30,528.15</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Multiple care visits</li>
-                    <li><i class="fas fa-check"></i> Nursing oversight</li>
-                    <li><i class="fas fa-check"></i> Regular supervision</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level4')">
@@ -89,17 +92,17 @@
                 </div>
             </div>
 
-            <!-- Level 5 -->
+            <!-- Classification 5 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #8A2BE2">Level 5</span>
-                    <h3 class="package-price">$39,697</h3>
-                    <p class="package-subtitle">Complex Care</p>
+                    <span class="level-indicator" style="background: #8A2BE2">Classification 5</span>
+                    <h3 class="package-price">$40,809.27</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Case management</li>
-                    <li><i class="fas fa-check"></i> Allied health services</li>
-                    <li><i class="fas fa-check"></i> Transport assistance</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level5')">
@@ -109,17 +112,17 @@
                 </div>
             </div>
 
-            <!-- Level 6 -->
+            <!-- Classification 6 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #FF6B35">Level 6</span>
-                    <h3 class="package-price">$48,114</h3>
-                    <p class="package-subtitle">Comprehensive Care</p>
+                    <span class="level-indicator" style="background: #FF6B35">Classification 6</span>
+                    <h3 class="package-price">$49,461.91</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Extended personal care</li>
-                    <li><i class="fas fa-check"></i> Clinical monitoring</li>
-                    <li><i class="fas fa-check"></i> Complex support</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level6')">
@@ -129,17 +132,17 @@
                 </div>
             </div>
 
-            <!-- Level 7 -->
+            <!-- Classification 7 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #2E8B57">Level 7</span>
-                    <h3 class="package-price">$58,148</h3>
-                    <p class="package-subtitle">Very High Care</p>
+                    <span class="level-indicator" style="background: #2E8B57">Classification 7</span>
+                    <h3 class="package-price">$59,776.80</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Multiple daily visits</li>
-                    <li><i class="fas fa-check"></i> Clinical coordination</li>
-                    <li><i class="fas fa-check"></i> Nursing team support</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level7')">
@@ -149,17 +152,17 @@
                 </div>
             </div>
 
-            <!-- Level 8 -->
+            <!-- Classification 8 -->
             <div class="package-card">
                 <div class="package-header">
-                    <span class="level-indicator" style="background: #B22222">Level 8</span>
-                    <h3 class="package-price">$78,106</h3>
-                    <p class="package-subtitle">Specialized Care</p>
+                    <span class="level-indicator" style="background: #B22222">Classification 8</span>
+                    <h3 class="package-price">$80,294.00</h3>
+                    <p class="package-subtitle">Annual funding • Support at Home</p>
                 </div>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Complex care plans</li>
-                    <li><i class="fas fa-check"></i> RN oversight</li>
-                    <li><i class="fas fa-check"></i> Palliative care</li>
+                    <li><i class="fas fa-check"></i> Services depend on assessed needs</li>
+                    <li><i class="fas fa-check"></i> Services are set out in your Support Plan</li>
+                    <li><i class="fas fa-check"></i> Your classification is determined through an aged care needs assessment</li>
                 </ul>
                 <div class="package-actions">
                     <button class="details-btn" onclick="showPackageDetails('level8')">
@@ -183,11 +186,12 @@
                 <div class="package-card">
                     <div class="package-header">
                         <span class="level-indicator" style="background: #8A2BE2">Restorative</span>
-                        <h3 class="package-price">Up to $12,000</h3>
+                        <h3 class="package-price">$6,179.40 per funding unit</h3>
                         <p class="package-subtitle">Restorative Care Pathway</p>
                     </div>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> 12-week program (extendable)</li>
+                        <li><i class="fas fa-check"></i> Up to 16 weeks</li>
+                        <li><i class="fas fa-check"></i> Up to two funding units, subject to approval</li>
                         <li><i class="fas fa-check"></i> Reablement focus</li>
                         <li><i class="fas fa-check"></i> Allied health services</li>
                     </ul>
@@ -204,11 +208,12 @@
                     <!--<div class="popular-tag">Compassionate Care</div>-->
                     <div class="package-header">
                         <span class="level-indicator" style="background: #2E8B57">Palliative</span>
-                        <h3 class="package-price">~$25,000</h3>
+                        <h3 class="package-price">$25,736.57</h3>
                         <p class="package-subtitle">End-of-Life Pathway</p>
                     </div>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> Last 3 months of life</li>
+                        <li><i class="fas fa-check"></i> For eligible participants with approximately three months or less to live who wish to remain at home</li>
+                        <li><i class="fas fa-check"></i> Funding is available over a 12-week period</li>
                         <li><i class="fas fa-check"></i> Palliative care at home</li>
                         <li><i class="fas fa-check"></i> Comprehensive support</li>
                     </ul>
@@ -230,7 +235,9 @@
                     <ul class="features">
                         <li><i class="fas fa-check"></i> Home modifications</li>
                         <li><i class="fas fa-check"></i> Equipment funding</li>
-                        <li><i class="fas fa-check"></i> Safety improvements</li>
+                        <li><i class="fas fa-check"></i> Assistive technology tiers: Low $513, Medium $2,052, High $15,390</li>
+                        <li><i class="fas fa-check"></i> Home modifications tiers: Low $513, Medium $2,052, High $15,390</li>
+                        <li><i class="fas fa-check"></i> Additional Assistive Technology funding above the High tier may be available with appropriate evidence or prescription</li>
                     </ul>
                     <div class="package-actions">
                         <button class="details-btn" onclick="showShortTermDetails('assistive')">
@@ -251,16 +258,16 @@
 
         <div class="participant-contributions">
             <h3>Participant Contributions</h3>
-            <p class="intro-text">From 1 November 2025, the Support at Home Program introduces income-based participant contributions to create a fairer system. You only pay for the services you receive - the government covers the rest.</p>
+            <p class="intro-text">Support at Home participant contributions depend on the type of service and each participant's financial circumstances. Clinical Supports, including nursing, physiotherapy and approved personal care, have a 0% contribution.</p>
             
             <div class="contributions-table">
                 <table>
                     <thead>
                         <tr>
-                            <th>Age Pension Status</th>
-                            <th>Clinical Care</th>
-                            <th>Independence Supports<br><small>(e.g. personal care)</small></th>
-                            <th>Everyday Living Supports<br><small>(e.g. cleaning)</small></th>
+                            <th>Financial Circumstances</th>
+                            <th>Clinical Supports</th>
+                            <th>Independence</th>
+                            <th>Everyday Living</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -277,7 +284,7 @@
                             <td>17.5–80%</td>
                         </tr>
                         <tr>
-                            <td>Self-Funded Retiree</td>
+                            <td>Self-funded retiree without CSHC</td>
                             <td>0%</td>
                             <td>50%</td>
                             <td>80%</td>
@@ -289,10 +296,11 @@
             <div class="key-points">
                 <h4>Key Points</h4>
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> Clinical care (e.g. nursing, physiotherapy) is fully funded.</li>
-                    <li><i class="fas fa-check-circle"></i> A lifetime cap of $130,000 (indexed) applies to contributions.</li>
+                    <li><i class="fas fa-check-circle"></i> Clinical Supports have a 0% contribution, including nursing, physiotherapy and approved personal care.</li>
+                    <li><i class="fas fa-check-circle"></i> The standard lifetime contribution cap is $140,652.80 as at 20 September 2026, indexed on 20 March and 20 September each year.</li>
+                    <li><i class="fas fa-check-circle"></i> Eligible grandfathered participants have a separate lifetime contribution cap of $88,934.57 as at 20 September 2026.</li>
                     <li><i class="fas fa-check-circle"></i> Financial hardship arrangements are available through Services Australia (form SA462).</li>
-                    <li><i class="fas fa-check-circle"></i> "No worse off" principle protects existing HCP clients – you won't pay more under Support at Home than before.</li>
+                    <li><i class="fas fa-check-circle"></i> No Worse Off arrangements apply to people who were receiving or approved for a Home Care Package on or before 12 September 2024. Eligible participants who were not assessed as paying an income-tested care fee as at 31 October 2025 will not be required to pay Support at Home contributions. Those assessed as paying an income-tested care fee will pay the same or less under Support at Home.</li>
                 </ul>
             </div>
         </div>
@@ -313,14 +321,14 @@
                 <div class="transparency-item">
                     <i class="fas fa-piggy-bank"></i>
                     <h4>Carry Over Benefits</h4>
-                    <p>You can carry over unused funds up to $1,000 or 10% of your quarterly budget to use for unexpected needs.</p>
+                    <p>Unused ongoing Support at Home funding automatically carries over to the next quarter, up to the higher of $1,000 or 10% of your quarterly budget, including supplements. Transitioned HCP unspent funds are subject to separate rules and are not subject to this quarterly carryover limit.</p>
                 </div>
             </div>
         </div>
 
         <div class="support-cta">
             <div class="cta-content">
-                <h4>Need help choosing the right care package?</h4>
+                <h4>Need help understanding Support at Home classifications?</h4>
                 <p>Our care consultants are available to guide you through the options</p>
                 <div class="cta-buttons">
                     <a href="tel:02 8730 9049" class="phone-cta">
@@ -1096,8 +1104,9 @@ let currentPackage = '';
 // Package details content
 const packageDetails = {
     level1: `
-        <h3>Level 1 – Basic Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $10,731</strong></p>
+        <h3>Support at Home Classification 1</h3>
+        <p class="budget-note"><strong>Annual funding: $11,031.56 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1106,7 +1115,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 1 package provides essential support to maintain independence and wellbeing:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1127,8 +1136,9 @@ const packageDetails = {
     `,
     
     level2: `
-        <h3>Level 2 – Low Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $16,034</strong></p>
+        <h3>Support at Home Classification 2</h3>
+        <p class="budget-note"><strong>Annual funding: $16,483.55 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1137,7 +1147,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 2 package builds on basic support with personal care assistance:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1158,8 +1168,9 @@ const packageDetails = {
     `,
     
     level3: `
-        <h3>Level 3 – Intermediate Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $21,966</strong></p>
+        <h3>Support at Home Classification 3</h3>
+        <p class="budget-note"><strong>Annual funding: $22,580.90 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1168,7 +1179,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 3 package provides comprehensive support for daily living activities:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1190,8 +1201,9 @@ const packageDetails = {
     `,
     
     level4: `
-        <h3>Level 4 – High Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $29,696</strong></p>
+        <h3>Support at Home Classification 4</h3>
+        <p class="budget-note"><strong>Annual funding: $30,528.15 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1200,7 +1212,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 4 package offers comprehensive support with nursing oversight:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1222,8 +1234,9 @@ const packageDetails = {
     `,
     
     level5: `
-        <h3>Level 5 – Complex Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $39,697</strong></p>
+        <h3>Support at Home Classification 5</h3>
+        <p class="budget-note"><strong>Annual funding: $40,809.27 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1232,7 +1245,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 5 package provides specialized support for complex care requirements:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1254,8 +1267,9 @@ const packageDetails = {
     `,
     
     level6: `
-        <h3>Level 6 – Comprehensive Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $48,114</strong></p>
+        <h3>Support at Home Classification 6</h3>
+        <p class="budget-note"><strong>Annual funding: $49,461.91 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1264,7 +1278,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 6 package offers extensive support for complex care needs:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1286,8 +1300,9 @@ const packageDetails = {
     `,
     
     level7: `
-        <h3>Level 7 – Very High Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $58,148</strong></p>
+        <h3>Support at Home Classification 7</h3>
+        <p class="budget-note"><strong>Annual funding: $59,776.80 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1296,7 +1311,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 7 package provides intensive support with clinical coordination:</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1318,8 +1333,9 @@ const packageDetails = {
     `,
     
     level8: `
-        <h3>Level 8 – Specialized Care Package</h3>
-        <p class="budget-note"><strong>Annual Budget: $78,106</strong></p>
+        <h3>Support at Home Classification 8</h3>
+        <p class="budget-note"><strong>Annual funding: $80,294.00 (from 1 October 2026)</strong></p>
+        <p>Your approved services depend on your assessed needs and Support Plan, rather than your classification number alone.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-user-friends"></i> Who This Is For</h4>
@@ -1328,7 +1344,7 @@ const packageDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-clipboard-list"></i> Services Included</h4>
-            <p>Our Level 8 package offers the highest level of Support at Home services</p>
+            <p>Services are selected to meet assessed needs and set out in the participant's Support Plan. Examples may include:</p>
             
             <div class="support-list">
                 <ul>
@@ -1374,7 +1390,7 @@ function hidePackageDetails() {
 const shortTermDetails = {
     restorative: `
         <h3>Restorative Care Pathway</h3>
-        <p class="budget-note"><strong>Funding: Up to $6,000 (12 weeks, may extend to $12,000)</strong></p>
+        <p class="budget-note"><strong>Each funding unit is $6,179.40 from 1 October 2026. Participants may be approved for up to two units, subject to assessed need and program requirements.</strong></p>
         
         <div class="detail-section">
             <h4><i class="fas fa-heartbeat"></i> Program Focus</h4>
@@ -1399,7 +1415,7 @@ const shortTermDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-calendar-alt"></i> Program Duration</h4>
-            <p>12-week intensive program with potential extension to 24 weeks based on progress and needs assessment.</p>
+            <p>The pathway provides coordinated, intensive allied health and/or nursing support for up to 16 weeks. A maximum of two funding units may be approved, depending on assessed need and program requirements.</p>
         </div>
         
         <div class="detail-section">
@@ -1410,7 +1426,7 @@ const shortTermDetails = {
     
     palliative: `
         <h3>End-of-Life Pathway</h3>
-        <p class="budget-note"><strong>Funding: Approximately $25,000 for the last three months of life</strong></p>
+        <p class="budget-note"><strong>$25,736.57 over a 12-week period from 1 October 2026.</strong></p>
         
         <div class="detail-section">
             <h4><i class="fas fa-hand-holding-heart"></i> Program Focus</h4>
@@ -1422,13 +1438,12 @@ const shortTermDetails = {
             
             <div class="support-list">
                 <ul>
-                    <li><i class="fas fa-procedures"></i> 24/7 pain and symptom management</li>
+                    <li><i class="fas fa-procedures"></i> Pain and symptom support based on assessed need, approved funding, the participant's care plan and service availability</li>
                     <li><i class="fas fa-user-nurse"></i> Specialized palliative care nursing</li>
                     <li><i class="fas fa-heart"></i> Emotional and spiritual support</li>
                     <li><i class="fas fa-users"></i> Family counseling and respite care</li>
                     <li><i class="fas fa-pills"></i> Medication management and administration</li>
                     <li><i class="fas fa-bed"></i> Personal care and comfort measures</li>
-                    <li><i class="fas fa-phone-alt"></i> 24/7 emergency support access</li>
                     <li><i class="fas fa-hands-helping"></i> Coordination with medical teams</li>
                 </ul>
             </div>
@@ -1436,7 +1451,7 @@ const shortTermDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-calendar-alt"></i> Program Duration</h4>
-            <p>Typically covers the final 3 months of life, with flexible commencement based on prognosis and needs.</p>
+            <p>The pathway supports eligible people who have approximately three months or less to live and wish to remain at home. Where funding remains available, it may continue to be used within the permitted pathway period in accordance with Support at Home requirements.</p>
         </div>
         
         <div class="detail-section">
@@ -1447,7 +1462,8 @@ const shortTermDetails = {
     
     assistive: `
         <h3>Assistive Technology & Home Modifications Scheme</h3>
-        <p class="budget-note"><strong>Funding: Separate funding tiers (low, medium, high) as assessed</strong></p>
+        <p class="budget-note"><strong>Assistive Technology and Home Modifications funding tiers: Low $513, Medium $2,052, High $15,390.</strong></p>
+        <p>Additional Assistive Technology funding above the High tier may be available where supported by appropriate evidence or prescription.</p>
         
         <div class="detail-section">
             <h4><i class="fas fa-tools"></i> Program Focus</h4>
@@ -1473,9 +1489,7 @@ const shortTermDetails = {
         
         <div class="detail-section">
             <h4><i class="fas fa-sitemap"></i> Funding Tiers</h4>
-            <p><strong>Low Tier:</strong> Basic equipment and minor modifications<br>
-            <strong>Medium Tier:</strong> More complex equipment and modifications<br>
-            <strong>High Tier:</strong> Major home modifications and specialized equipment</p>
+            <p>Each program has Low ($513), Medium ($2,052) and High ($15,390) indexed funding tiers. Additional Assistive Technology funding above the High tier may be available where supported by appropriate evidence or prescription.</p>
         </div>
         
         <div class="detail-section">

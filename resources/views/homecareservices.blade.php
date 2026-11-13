@@ -1,5 +1,5 @@
 @extends('layouts.care')
-@section('title', 'Home Care Services')
+@section('title', 'Support at Home Services & Pricing | Allegiance Heart & Home Care')
 
 @section('content')
 
@@ -550,7 +550,7 @@
     <nav class="services-nav">
         <div class="container">
             <div class="services-nav-container">
-                <a href="#packages" class="nav-link active">Support at Home Packages</a>
+                <a href="#packages" class="nav-link active">Support at Home Funding Classifications</a>
                 <a href="#personal-care" class="nav-link">Personal Care</a>
                 <a href="#domestic" class="nav-link">Domestic Assistance</a>
                 <a href="#nursing" class="nav-link">Nursing Care</a>
@@ -650,7 +650,7 @@
                         </ul>
 
                         <div class="service-cta">
-                             <a href="/support-at-home-enquiry class="btn btn-primary">
+                            <a href="/support-at-home-enquiry" class="btn btn-primary">
                                 <i class="fas fa-phone-alt"></i> Submit an Enquiry
                             </a>
                         </div>
@@ -751,7 +751,7 @@
                             <li><i class="fas fa-check"></i> Pain and symptom management</li>
                             <li><i class="fas fa-check"></i> Emotional and spiritual support</li>
                             <li><i class="fas fa-check"></i> Personal care with dignity</li>
-                            <li><i class="fas fa-check"></i> 24/7 nursing care as needed</li>
+                            <li><i class="fas fa-check"></i> Nursing and personal care support based on assessed need, approved funding, the participant's care plan and service availability</li>
                             <li><i class="fas fa-check"></i> Family support and education</li>
                             <li><i class="fas fa-check"></i> Coordination with palliative care teams</li>
                             <li><i class="fas fa-check"></i> Bereavement support</li>
@@ -781,7 +781,7 @@
                         <div class="resource-content">
                             <h3>Support at Home Consumer Handbook</h3>
                             <p>Everything you need to know about receiving Support at Home Services, your rights, and what to expect.</p>
-                            <a href="#" class="btn btn-primary">
+                            <a href="/download-brochure" class="btn btn-primary">
                                 <i class="fas fa-download"></i> Download Now
                             </a>
                         </div>
@@ -793,9 +793,9 @@
                         </div>
                         <div class="resource-content">
                             <h3>Support at Home Pricing Schedule</h3>
-                            <p>Transparent information about our fees and what's included in each package level.</p>
+                            <p>Transparent information about our Support at Home service prices and applicable service arrangements.</p>
                              <a href="/pricingform" class="btn btn-primary">
-                                    <i class="fas fa-download"></i> Downoad Now
+                                    <i class="fas fa-download"></i> Download Now
                             </a>
                         </div>
                     </div>
@@ -806,7 +806,7 @@
                         </div>
                         <div class="resource-content">
                             <h3>Frequently Asked Questions</h3>
-                            <p>Answers to common questions about Support at Home packages and services.</p>
+                            <p>Answers to common questions about Support at Home services and classifications.</p>
                          <a href="{{url('/contact#faq')}}" class="btn btn-primary">
                                 <i class=""></i> FAQ
                             </a>

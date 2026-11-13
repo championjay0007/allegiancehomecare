@@ -192,7 +192,7 @@
             <div class="terms-section">
                 <h2>11. Fees and Payments</h2>
                 <p>Service fees (including any deposits or co-payments) will be detailed in your service agreement or quote. NDIS-funded supports will be billed as per the NDIA's Price Guide.</p>
-                <p>You agree to pay all charges on time via the agreed payment method. We may suspend services if fees are overdue. Where applicable, we will issue invoices and provide receipts. GST is included in all our prices.</p>
+                <p>You agree to pay all charges on time via the agreed payment method. We may suspend services if fees are overdue. Where applicable, we will issue invoices and provide receipts. GST will be applied where required by Australian taxation law. Some eligible aged care, health and NDIS services may be GST-free.</p>
             </div>
             
             <div class="terms-section">
