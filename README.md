@@ -25,7 +25,7 @@ DEPLOY_BRANCH=main ./scripts/deploy.sh
 
 Only use the stash command if that file path exists and has local changes; change it to the correct path for your checkout. The stashed edit is saved in Git's stash and is not reapplied automatically. The deployment script requires the current checkout to be on the selected branch, and stops if other unstashed local changes remain.
 
-The script fetches the latest code from GitHub, installs production dependencies, builds the assets, runs database migrations, and refreshes Laravel's caches. It does not replace `.env` or delete uploaded files. cPanel needs Git, PHP 8.2+, Composer, and Node.js/npm in Terminal. If cPanel uses a versioned PHP command, run `PHP_BIN=ea-php82 DEPLOY_BRANCH=main ./scripts/deploy.sh`. Back up the production database before deploying migrations. Keep the domain's document root pointed at the checkout's `public` folder.
+The script fetches the latest code from GitHub, installs production dependencies, runs database migrations, and refreshes Laravel's caches. Production Vite assets are built before deployment and included in Git, so cPanel does not need Node.js/npm. If npm is available, the script rebuilds those assets; otherwise, it uses the prebuilt files. It does not replace `.env` or delete uploaded files. cPanel needs Git, PHP 8.2+, and Composer in Terminal. If cPanel uses a versioned PHP command, run `PHP_BIN=ea-php82 DEPLOY_BRANCH=main ./scripts/deploy.sh`. Back up the production database before deploying migrations. Keep the domain's document root pointed at the checkout's `public` folder.
 
 ## About Laravel
 

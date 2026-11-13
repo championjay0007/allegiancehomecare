@@ -13,7 +13,7 @@ if ! git check-ref-format --branch "$DEPLOY_BRANCH" >/dev/null 2>&1; then
     exit 1
 fi
 
-for executable in "$PHP_BIN" "$COMPOSER_BIN" "$NPM_BIN"; do
+for executable in "$PHP_BIN" "$COMPOSER_BIN"; do
     if ! command -v "$executable" >/dev/null 2>&1; then
         printf 'Error: required executable not found: %s\n' "$executable" >&2
         exit 1
@@ -40,6 +40,11 @@ fi
 
 git fetch origin "$DEPLOY_BRANCH"
 git merge --ff-only "origin/$DEPLOY_BRANCH"
+
+if ! git ls-files --error-unmatch public/build/manifest.json >/dev/null 2>&1; then
+    printf 'Error: the deployment branch must include the built Vite asset manifest.\n' >&2
+    exit 1
+fi
 
 maintenance_enabled=0
 
@@ -68,8 +73,12 @@ maintenance_enabled=1
     --prefer-dist \
     --optimize-autoloader
 
-"$NPM_BIN" ci --no-audit --no-fund
-"$NPM_BIN" run build
+if command -v "$NPM_BIN" >/dev/null 2>&1; then
+    "$NPM_BIN" ci --no-audit --no-fund
+    "$NPM_BIN" run build
+else
+    printf 'npm not found; using the prebuilt assets included in the deployment branch.\n'
+fi
 
 "$PHP_BIN" artisan migrate --force
 "$PHP_BIN" artisan optimize:clear
