@@ -47,7 +47,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level2')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level3')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level4')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
 
@@ -108,7 +108,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level5')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
 
@@ -128,7 +128,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level6')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
 
@@ -148,7 +148,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level7')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
                     <button class="details-btn" onclick="showPackageDetails('level8')">
                         <i class="fas fa-info-circle"></i> View Details
                     </button>
-                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                   <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                 </div>
             </div>
         </div>
@@ -199,7 +199,7 @@
                         <button class="details-btn" onclick="showShortTermDetails('restorative')">
                             <i class="fas fa-info-circle"></i> View Details
                         </button>
-                        <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                        <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                     </div>
                 </div>
 
@@ -221,7 +221,7 @@
                         <button class="details-btn" onclick="showShortTermDetails('palliative')">
                             <i class="fas fa-info-circle"></i> View Details
                         </button>
-                        <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                        <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                     </div>
                 </div>
 
@@ -243,7 +243,7 @@
                         <button class="details-btn" onclick="showShortTermDetails('assistive')">
                             <i class="fas fa-info-circle"></i> View Details
                         </button>
-                        <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+                        <a href="/support-at-home-enquiry" class="book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
                     </div>
                 </div>
             </div>
@@ -350,7 +350,7 @@
             <i class="fas fa-times"></i>
         </button>
         <div id="modalPackageContent" class="modal-content"></div>
-        <a href="/support-at-home-enquiry" class="modal-book-btn">  <i class="fas fa-calendar-check"></i> Book This Service</a>
+        <a href="/support-at-home-enquiry" class="modal-book-btn">  <i class="fas fa-calendar-check"></i> Submit an Enquiry</a>
     </div>
 </div>
 
@@ -494,18 +494,20 @@
 }
 
 .level-indicator {
-    position: absolute;
-    top: -2.8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 56px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
     color: var(--light);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    text-align: center;
     box-shadow: var(--shadow-md);
 }
 
