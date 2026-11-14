@@ -499,10 +499,10 @@ with dignity, independence, and confidence at home and in the community.</p>
             <!-- VIC Office -->
             <div class="office-card">
                 <span class="office-state">📍 VICTORIA</span>
-                <h4>Richmond Office</h4>
+                <h4>Cremorne Office</h4>
                 <div class="office-address">
                     <p><i class="fas fa-building"></i> 580 Church Street</p>
-                    <p><i class="fas fa-location-dot"></i> Richmond VIC 3121</p>
+                    <p><i class="fas fa-location-dot"></i> Cremorne VIC 3121</p>
                 </div>
                 <div class="office-phone">
                     <a href="tel:0370346513"><i class="fas fa-phone-alt"></i> 03 7034 6513</a>

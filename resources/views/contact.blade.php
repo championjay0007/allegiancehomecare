@@ -972,13 +972,13 @@
             </div>
         </div>
 
-        <!-- Victoria - Richmond Office -->
+        <!-- Victoria - Cremorne Office -->
         <div class="location-card">
             <div class="location-header">
                 <div class="state-badge">
                     <i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i> Victoria
                 </div>
-                <h3>Richmond Office</h3>
+                <h3>Cremorne Office</h3>
             </div>
             <div class="location-details">
                 <div class="address-block">
@@ -988,7 +988,7 @@
                     </div>
                     <div class="address-line">
                         <i class="fas fa-location-dot"></i>
-                        <span>Richmond VIC 3121</span>
+                        <span>Cremorne VIC 3121</span>
                     </div>
                 </div>
                 <div class="phone-block">
@@ -997,7 +997,7 @@
                 </div>
             </div>
             <div class="location-footer">
-                <a href="https://maps.google.com/?q=580+Church+Street+Richmond+VIC+3121" target="_blank" class="map-link">
+                <a href="https://maps.google.com/?q=580+Church+Street+Cremorne+VIC+3121" target="_blank" class="map-link">
                     <i class="fas fa-directions"></i> Get Directions
                 </a>
                 <div class="office-hours">
