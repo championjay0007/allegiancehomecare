@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="pricing-links">
-            <p>Before proceeding, please review our pricing:</p>
+            <p>Want to know more about our pricing? Our current pricing and consumer handbook are available here if you would like to review them.</p>
             <a href="/pricingform" class="pricing-link">Pricing Schedule</a>
             <a href="/download-brochure" class="pricing-link">Consumer Handbook</a>
         </div>
