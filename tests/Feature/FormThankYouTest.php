@@ -10,6 +10,28 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
+it('shows a two-step booking form with only the requested details', function () {
+    $response = $this->get(route('booking.form'));
+
+    $response
+        ->assertOk()
+        ->assertSee('data-step="1"', false)
+        ->assertSee('data-step="2"', false)
+        ->assertDontSee('data-step="3"', false)
+        ->assertSee('name="completing_as"', false)
+        ->assertSee('name="full_name"', false)
+        ->assertSee('name="phone"', false)
+        ->assertSee('name="email"', false)
+        ->assertSee('name="postcode"', false)
+        ->assertSee('name="suburb"', false)
+        ->assertSee('name="state"', false)
+        ->assertSee('name="hcp_id"', false)
+        ->assertSee('name="additional_info"', false)
+        ->assertSee('name="referral_source"', false)
+        ->assertDontSee('name="contact_time"', false)
+        ->assertDontSee('name="support_docs[]"', false);
+});
+
 it('redirects booking submissions to the conversion thank-you page', function () {
     Mail::fake();
 
@@ -22,8 +44,6 @@ it('redirects booking submissions to the conversion thank-you page', function ()
         'postcode' => '2000',
         'suburb' => 'Sydney',
         'state' => 'NSW',
-        'contact_time' => 'morning',
-        'hcp_services' => ['personal_care'],
         'consent' => '1',
     ]);
 

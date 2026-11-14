@@ -44,14 +44,10 @@
             <div class="step-number">2</div>
             <div class="step-label">Your Details</div>
         </div>
-        <div class="progress-step" data-step="3">
-            <div class="step-number">3</div>
-            <div class="step-label">Service Needs</div>
-        </div>
     </div>
 
     <!-- Form Sections -->
-    <form id="bookingForm" action="{{ route('booking.submit') }}" method="POST" enctype="multipart/form-data">
+    <form id="bookingForm" action="{{ route('booking.submit') }}" method="POST">
         @csrf
 
         <!-- Step 1: Service Type -->
@@ -87,7 +83,7 @@
             </div>
         </div>
 
-        <!-- Step 2: Personal Details -->
+        <!-- Step 2: Your Details -->
         <div class="form-step" data-step="2">
             <h2>Tell us about yourself</h2>
             
@@ -161,86 +157,11 @@
                     <input type="text" id="hcp_id" name="hcp_id">
                 </div>
                 
-                <!-- Contact Preferences -->
-                <div class="form-group full-width">
-                    <label>Preferred Contact Method *</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="contact_phone" value="1" checked> Phone</label>
-                        <label><input type="checkbox" name="contact_email" value="1" checked> Email</label>
-                        <label><input type="checkbox" name="contact_sms" value="1"> SMS</label>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="contact_time">Best Time to Contact *</label>
-                    <select id="contact_time" name="contact_time" required>
-                        <option value="">Select preferred time</option>
-                        <option value="morning">Morning (9am-12pm)</option>
-                        <option value="afternoon">Afternoon (12pm-5pm)</option>
-                        <option value="evening">Evening (5pm-8pm)</option>
-                        <option value="anytime">Anytime</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="form-navigation">
-                <button type="button" class="btn-prev" onclick="prevStep()">Back</button>
-                <button type="button" class="btn-next" onclick="nextStep(3)">Continue</button>
-            </div>
-        </div>
-
-        <!-- Step 3: Service Needs -->
-        <div class="form-step" data-step="3">
-            <h2>Tell us about your service needs</h2>
-            
-            <div class="form-grid">
-                <!-- Service Type Specific Fields -->
-                <div class="form-group">
-                    <label for="preferred_date">Preferred Start Date</label>
-                    <input type="date" id="preferred_date" name="preferred_date">
-                </div>
-                
-                <!-- Dynamic Service Selection -->
-                <div class="form-group full-width" id="ndis_services_container">
-                    <label>NDIS Services Needed</label>
-                    <div class="checkbox-grid">
-                        <label><input type="checkbox" name="ndis_services[]" value="support_worker"> Support Worker</label>
-                        <label><input type="checkbox" name="ndis_services[]" value="nursing"> Nursing Care</label>
-                        <label><input type="checkbox" name="ndis_services[]" value="physio"> Physiotherapy</label>
-                        <label><input type="checkbox" name="ndis_services[]" value="coordination"> Support Coordination</label>
-                        <label><input type="checkbox" name="ndis_services[]" value="household"> Household Tasks</label>
-                        <label><input type="checkbox" name="ndis_services[]" value="community"> Community Access</label>
-                        <label><input type="checkbox" name="ndis_services[]" value="plan_management"> Plan Management</label>
-                    </div>
-                </div>
-                
-                <div class="form-group full-width" id="hcp_services_container">
-                    <label>Home Care Services Needed</label>
-                    <div class="checkbox-grid">
-                        <label><input type="checkbox" name="hcp_services[]" value="personal_care"> Personal Care</label>
-                        <label><input type="checkbox" name="hcp_services[]" value="nursing"> Nursing Support</label>
-                        <label><input type="checkbox" name="hcp_services[]" value="domestic"> Domestic Assistance</label>
-                        <label><input type="checkbox" name="hcp_services[]" value="allied_health"> Allied Health</label>
-                        <label><input type="checkbox" name="hcp_services[]" value="respite"> Respite Care</label>
-                        <label><input type="checkbox" name="hcp_services[]" value="palliative"> Palliative Care</label>
-                        <label><input type="checkbox" name="hcp_services[]" value="assistive_tech"> Assistive Technology</label>
-                    </div>
-                </div>
-                
-                <!-- Additional Information -->
                 <div class="form-group full-width">
                     <label for="additional_info">Additional Information</label>
                     <textarea id="additional_info" name="additional_info" rows="4"></textarea>
                 </div>
-                
-                <!-- File Upload -->
-                <div class="form-group full-width">
-                    <label for="support_docs">Upload Support Documents (Optional)</label>
-                    <input type="file" id="support_docs" name="support_docs[]" multiple>
-                    <small>e.g., NDIS plan, care plan, referral documents (Max 5MB each)</small>
-                </div>
-                
-                <!-- Referral Source -->
+
                 <div class="form-group">
                     <label for="referral_source">How did you hear about us?</label>
                     <select id="referral_source" name="referral_source">
@@ -266,7 +187,7 @@
             
             <div class="form-navigation">
                 <button type="button" class="btn-prev" onclick="prevStep()">Back</button>
-                <button type="submit" class="btn-submit">Submit My Enquiry</button>
+                <button type="submit" class="btn-submit">Submit Enquiry</button>
             </div>
         </div>
     </form>
@@ -546,6 +467,10 @@
         grid-column: span 2;
     }
 
+    .form-group.full-width textarea {
+        min-height: 76px;
+    }
+
     .form-group label {
         display: block;
         margin-bottom: 0.5rem;
@@ -773,20 +698,21 @@ textarea {
 
 
 <script>
-    // Show/hide NDIS or HCP fields based on service type selection
-    document.querySelectorAll('input[name="service_type"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            const isNDIS = this.value === 'ndis';
-            
-            // Toggle ID fields
-            document.getElementById('ndis_number_container').style.display = isNDIS ? 'block' : 'none';
-            document.getElementById('hcp_id_container').style.display = isNDIS ? 'none' : 'block';
-            
-            // Toggle service options
-            document.getElementById('ndis_services_container').style.display = isNDIS ? 'block' : 'none';
-            document.getElementById('hcp_services_container').style.display = isNDIS ? 'none' : 'block';
-        });
-    });
+    // Show the relevant optional ID field for the selected service type.
+    const serviceTypeInputs = document.querySelectorAll('input[name="service_type"]');
+    const ndisNumberContainer = document.getElementById('ndis_number_container');
+    const hcpIdContainer = document.getElementById('hcp_id_container');
+
+    function updateServiceIdFields() {
+        const selectedService = document.querySelector('input[name="service_type"]:checked');
+        const isNDIS = selectedService && selectedService.value === 'ndis';
+
+        ndisNumberContainer.style.display = isNDIS ? 'block' : 'none';
+        hcpIdContainer.style.display = isNDIS ? 'none' : 'block';
+    }
+
+    serviceTypeInputs.forEach(radio => radio.addEventListener('change', updateServiceIdFields));
+    updateServiceIdFields();
     
     // Show "Other" role field when selected
     document.getElementById('completing_as').addEventListener('change', function() {
@@ -874,7 +800,7 @@ textarea {
         e.preventDefault();
         const form = this;
         
-        if (validateStep(3)) {
+        if (validateStep(2)) {
             // Show loading state
             const submitBtn = form.querySelector('.btn-submit');
             submitBtn.disabled = true;
@@ -918,7 +844,7 @@ textarea {
             })
             .finally(() => {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit My Enquiry';
+                submitBtn.textContent = 'Submit Enquiry';
             });
         }
     });

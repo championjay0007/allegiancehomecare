@@ -49,17 +49,7 @@ const GENDER_OPTIONS = [
     'state' => 'required|in:NSW,VIC,QLD,SA,WA,TAS,NT,ACT',
     'ndis_number' => 'nullable|string|max:20',
     'hcp_id' => 'nullable|string|max:20',
-    'contact_phone' => 'sometimes|accepted',
-    'contact_email' => 'sometimes|accepted',
-    'contact_sms' => 'sometimes|accepted',
-    'contact_time' => 'required|string|max:20',
-
-    // Step 3: Service Needs
-    'preferred_date' => 'nullable|date',
-    'ndis_services' => 'required_if:service_type,ndis|array|min:1',
-    'hcp_services' => 'required_if:service_type,home_care|array|min:1',
     'additional_info' => 'nullable|string|max:1000',
-    'support_docs.*' => 'nullable|file|mimes:pdf,jpg,png|max:5120', // 5MB
     'referral_source' => 'nullable|string|max:255',
     'consent' => 'required|accepted',
 
