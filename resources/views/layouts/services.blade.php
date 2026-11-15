@@ -408,7 +408,7 @@
                 <div id="ndis" class="service-content active">
                     <div class="service-text">
                         <h3>Comprehensive and Person-Centred NDIS Support Services</h3>
-                        <p>At Allegiance Heart and Home Care, we are dedicated to delivering high-quality,
+                        <p>At Allegiance Heart &amp; Home Care, we are dedicated to delivering high-quality,
 tailored support under the National Disability Insurance Scheme (NDIS). Our focus is
 on empowering participants to achieve their goals, build independence, and lead
 meaningful lives. Through a compassionate, person-centred approach, we ensure

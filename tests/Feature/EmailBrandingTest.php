@@ -48,3 +48,17 @@ it('uses the full brand name in email sender and subject lines', function () {
         expect($subject)->toContain('Allegiance Heart & Home Care');
     }
 });
+
+it('uses the full brand name in the shared service-request email layout', function () {
+    $serviceRequest = new ServiceRequest([
+        'full_name' => 'Taylor Example',
+        'service_type' => 'home_care',
+    ]);
+    $serviceRequest->id = 42;
+    $serviceRequest->created_at = now();
+
+    $content = html_entity_decode((new ServiceRequestReceived($serviceRequest))->render());
+
+    expect($content)->toContain('Allegiance Heart & Home Care')
+        ->and($content)->not->toContain('Allegiance Home Care');
+});

@@ -579,7 +579,7 @@
     <div class="main-header">
         <div class="nav-container">
             <a href="{{ route('home') }}" class="logo-container">
-                <img src="{{asset('images/logo.jpg')}}" alt="Allegiance Care" class="logo-img">
+                <img src="{{asset('images/logo.jpg')}}" alt="Allegiance Heart &amp; Home Care" class="logo-img">
                 <span class="logo-text">Allegiance Heart & Home Care</span>
             </a>
 

@@ -114,7 +114,7 @@
             
             <div class="policy-section">
                 <h2>1. Purpose</h2>
-                <p>Allegiance Heart and Home Care ("we", "us", "our") respects your privacy and handles personal and health information in accordance with the Privacy Act 1988 (Cth), the Australian Privacy Principles (APPs), equivalent state/territory health privacy laws, and the NDIS Code of Conduct.</p>
+                <p>Allegiance Heart &amp; Home Care ("we", "us", "our") respects your privacy and handles personal and health information in accordance with the Privacy Act 1988 (Cth), the Australian Privacy Principles (APPs), equivalent state/territory health privacy laws, and the NDIS Code of Conduct.</p>
                 <p>We are committed to protecting the privacy of our consumers, participants, employees, and website visitors. Under these laws, health or disability information is considered sensitive and must be handled with extra care. In line with the NDIS Code, people with disability have rights to privacy over the collection, use and disclosure of information about them, and we protect privacy in accordance with all Commonwealth and state/territory privacy laws. We follow our published privacy procedures to ensure you are informed about what information we collect, why we hold it, how we use and share it, and how we can keep it secure.</p>
             </div>
             
