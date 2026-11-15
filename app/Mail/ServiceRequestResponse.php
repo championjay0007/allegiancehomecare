@@ -29,7 +29,8 @@ class ServiceRequestResponse extends Mailable
             : "Response to Your Service Request #{$this->serviceRequest->id}";
         $subject .= ' - Allegiance Heart & Home Care';
 
-        return $this->subject($subject)
+        return $this->from(config('mail.from.address'), 'Allegiance Heart & Home Care')
+            ->subject($subject)
             ->markdown('emails.service_request_response')
             ->with([
                 'request' => $this->serviceRequest,

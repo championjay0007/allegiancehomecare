@@ -47,6 +47,17 @@ it('uses the full brand name in email sender and subject lines', function () {
     foreach ($subjects as $subject) {
         expect($subject)->toContain('Allegiance Heart & Home Care');
     }
+
+    foreach ([
+        (new ServiceRequestReceived($serviceRequest))->build(),
+        (new NewServiceRequestNotification($serviceRequest))->build(),
+        (new ServiceRequestResponse($serviceRequest, 'We will be in touch.'))->build(),
+    ] as $serviceRequestMail) {
+        expect($serviceRequestMail->hasFrom(
+            config('mail.from.address'),
+            'Allegiance Heart & Home Care'
+        ))->toBeTrue();
+    }
 });
 
 it('uses the full brand name in the shared service-request email layout', function () {
