@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Career;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\CareerApplicationReceived;
 use App\Mail\NewCareerApplication;
+use App\Models\Career;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 
 class CareerController extends Controller
 {
     public function index()
     {
-        return view('careers.index');
+        return view('careers.index', [
+            'roles' => Career::ROLES,
+            'locations' => Career::LOCATIONS,
+            'employmentTypes' => Career::EMPLOYMENT_TYPES,
+            'workRightsOptions' => Career::WORK_RIGHTS_OPTIONS,
+            'availabilities' => Career::AVAILABILITIES,
+            'referralSources' => Career::REFERRAL_SOURCES,
+        ]);
     }
 
     public function submitApplication(Request $request)
@@ -22,17 +29,16 @@ class CareerController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'referral_source' => 'nullable|string|max:255',
-            'is_australian_citizen_or_pr' => 'required|boolean',
-            'visa_type' => 'nullable|required_if:is_australian_citizen_or_pr,false|string|max:255',
-            'has_valid_working_visa' => 'nullable|boolean',
-            'reference_name' => 'nullable|string|max:255',
-            'reference_relationship' => 'nullable|string|max:255',
-            'reference_phone' => 'nullable|string|max:20',
+            'phone' => 'required|string|max:20',
+            'referral_source' => ['required', 'string', Rule::in(Career::REFERRAL_SOURCES)],
+            'preferred_location' => ['required', 'string', Rule::in(Career::LOCATIONS)],
+            'employment_type_preference' => ['required', 'string', Rule::in(Career::EMPLOYMENT_TYPES)],
+            'work_rights' => ['required', 'string', Rule::in(Career::WORK_RIGHTS_OPTIONS)],
+            'availability' => ['required', 'string', Rule::in(Career::AVAILABILITIES)],
+            'consent' => 'required|accepted',
             'resume' => 'required|file|mimes:pdf,doc,docx|max:5120',
-            'cover_letter' => 'nullable|string',
-            'job_position' => 'required|string|max:255',
+            'cover_letter' => 'nullable|string|max:5000',
+            'job_position' => ['required', 'string', Rule::in(Career::ROLES)],
         ]);
 
         // Store resume
@@ -44,16 +50,15 @@ class CareerController extends Controller
             'last_name' => $validated['last_name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],
-            'referral_source' => $validated['referral_source'],
-            'is_australian_citizen_or_pr' => $validated['is_australian_citizen_or_pr'],
-            'visa_type' => $validated['visa_type'] ?? null,
-            'has_valid_working_visa' => $validated['has_valid_working_visa'] ?? false,
-            'reference_name' => $validated['reference_name'],
-            'reference_relationship' => $validated['reference_relationship'],
-            'reference_phone' => $validated['reference_phone'],
-            'resume_path' => $resumePath,
-            'cover_letter' => $validated['cover_letter'],
             'job_position' => $validated['job_position'],
+            'preferred_location' => $validated['preferred_location'],
+            'employment_type_preference' => $validated['employment_type_preference'],
+            'work_rights' => $validated['work_rights'],
+            'availability' => $validated['availability'],
+            'referral_source' => $validated['referral_source'],
+            'consent' => true,
+            'resume_path' => $resumePath,
+            'cover_letter' => $validated['cover_letter'] ?? null,
         ]);
 
         // Send confirmation email to applicant
@@ -64,7 +69,7 @@ class CareerController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Application submitted successfully'
+            'message' => 'Application submitted successfully',
         ]);
     }
 }

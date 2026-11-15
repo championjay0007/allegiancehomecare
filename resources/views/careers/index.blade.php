@@ -261,18 +261,18 @@
     .application-form {
         background: white;
         border-radius: 12px;
-        padding: 50px;
+        padding: clamp(24px, 5vw, 50px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         margin-top: 40px;
     }
 
     .form-title {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .form-title h2 {
-        font-size: 2rem;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
         font-weight: 700;
         color: var(--dark);
         margin-bottom: 10px;
@@ -285,17 +285,23 @@
     .form-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        margin-bottom: 30px;
+        column-gap: 24px;
+        row-gap: 4px;
+        margin-bottom: 18px;
     }
 
     .form-group {
-        margin-bottom: 20px;
+        min-width: 0;
+        margin-bottom: 14px;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
     }
 
     .form-group label {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         font-weight: 600;
         color: var(--dark);
     }
@@ -309,6 +315,11 @@
         transition: all 0.3s ease;
     }
 
+    select.form-control {
+        min-height: 48px;
+        background-color: #fff;
+    }
+
     .form-control:focus {
         border-color: var(--primary);
         box-shadow: 0 0 0 3px rgba(29, 191, 173, 0.2);
@@ -316,23 +327,78 @@
     }
 
     textarea.form-control {
-        min-height: 120px;
+        min-height: 88px;
         resize: vertical;
     }
 
-    .form-check {
+    .employment-options {
         display: flex;
-        align-items: center;
-        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        padding: 8px 0;
     }
 
-    .form-check-input {
-        margin-right: 10px;
+    .employment-option,
+    .consent-option {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .employment-option input,
+    .consent-option input {
+        flex: 0 0 auto;
+        margin-top: 4px;
+        accent-color: var(--primary);
+    }
+
+    .resume-control {
+        padding: 10px;
+        border: 1px dashed #9aa8ad;
+        border-radius: 8px;
+        background: #f8fbfb;
+    }
+
+    .resume-control::file-selector-button {
+        margin-right: 12px;
+        padding: 8px 14px;
+        border: 0;
+        border-radius: 6px;
+        background: var(--primary);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .consent-option {
+        line-height: 1.5;
+        font-weight: 400 !important;
+    }
+
+    .career-form-error {
+        display: none;
+        margin-bottom: 18px;
+        padding: 12px 16px;
+        border-radius: 6px;
+        background: #fef2f2;
+        color: #b91c1c;
+    }
+
+    .career-form-error.active {
+        display: block;
     }
 
     .form-actions {
         text-align: center;
-        margin-top: 40px;
+        margin-top: 24px;
+    }
+
+    .form-actions .btn {
+        min-width: 250px;
+        background: linear-gradient(135deg, #1DBFAD 0%, #159B8A 100%);
+        border: 0;
+        color: #fff;
     }
 
     /* Success Modal */
@@ -469,6 +535,15 @@
             grid-template-columns: 1fr;
         }
         
+        .application-form {
+            padding: 24px 18px;
+        }
+
+        .employment-options {
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .benefits-grid {
             grid-template-columns: 1fr;
         }
@@ -537,7 +612,7 @@
                 <div class="job-header">
                     <div class="flex justify-between items-start flex-wrap gap-4">
                         <div>
-                            <h3 class="job-title">Care Worker</h3>
+                            <h3 class="job-title">Support Worker</h3>
                             <div class="job-meta">
                                 <span class="job-tag" style="background-color: #E1F5FE; color: #0288D1;">Full-time</span>
                                 <span class="job-tag" style="background-color: #E8F5E9; color: #388E3C;">Sydney</span>
@@ -545,7 +620,7 @@
 </span>
                             </div>
                         </div>
-                        <button class="btn btn-outline apply-btn" data-position="Care Worker">Apply Now</button>
+                        <button class="btn btn-outline apply-btn" data-position="Support Worker">Apply Now</button>
                     </div>
                 </div>
                 
@@ -575,113 +650,126 @@
     </div>
 </section>
 
-<!-- Application Form (initially hidden) -->
-<section id="application-form" class="section hidden">
+<!-- Application Form -->
+<section id="application-form" class="section">
     <div class="container">
         <div class="application-form">
             <div class="form-title">
-                <h2>Apply for <span id="position-title" style="color: var(--primary);"></span></h2>
-                <p>Please fill out the form below to submit your application.</p>
+                <h2>Join Our Caring Team</h2>
+                <p>Interested in making a difference? Submit your application below and we’ll be in touch if there’s a suitable opportunity.</p>
             </div>
             
             <form id="career-form" action="{{ route('careers.submit') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="job_position" id="job_position" value="">
                 
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="first_name">First Name *</label>
-                        <input type="text" id="first_name" name="first_name" class="form-control" required>
+                        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Enter your first name" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="last_name">Last Name *</label>
-                        <input type="text" id="last_name" name="last_name" class="form-control" required>
+                        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Enter your last name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" class="form-control">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Work Eligibility *</label>
-                    <div class="form-check">
-                        <input type="checkbox" id="citizen_pr" name="is_australian_citizen_or_pr" class="form-check-input" value="1">
-                        <label for="citizen_pr">I am an Australian citizen or permanent resident</label>
+
+                    <div class="form-group">
+                        <label for="job_position">Role Applying For *</label>
+                        <select id="job_position" name="job_position" class="form-control" required>
+                            <option value="">Select a role</option>
+                            @foreach($roles as $role)
+                                <option value="{{ $role }}">{{ $role }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     
-                    <div id="visa-details" class="hidden pl-6 border-l-2 border-gray-200 mt-4">
-                        <div class="form-group">
-                            <label for="visa_type">Visa Type</label>
-                            <input type="text" id="visa_type" name="visa_type" class="form-control">
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" id="valid_visa" name="has_valid_working_visa" class="form-check-input" value="1">
-                            <label for="valid_visa">I have a valid working visa</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Referral Field -->
-                <div class="form-group">
-                    <label for="referral_source">How did you hear about us? *</label>
-                    <select id="referral_source" name="referral_source" class="form-control" required>
-                        <option value="">Select an option</option>
-                        <option value="Indeed">Indeed</option>
-                        <option value="Seek">Seek</option>
-                        <option value="LinkedIn">LinkedIn</option>
-                        <option value="Company Website">Company Website</option>
-                        <option value="Friend/Referral">Friend/Referral</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <!-- If referral is from a friend, show additional field -->
-                <div id="referral-details" class="hidden">
                     <div class="form-group">
-                        <label for="referral_name">Referral Name</label>
-                        <input type="text" id="referral_name" name="referral_name" class="form-control">
+                        <label for="preferred_location">Preferred Location *</label>
+                        <select id="preferred_location" name="preferred_location" class="form-control" required>
+                            <option value="">Select a location</option>
+                            @foreach($locations as $location)
+                                <option value="{{ $location }}">{{ $location }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Employment Type Preference *</label>
+                        <div class="employment-options">
+                            @foreach($employmentTypes as $index => $employmentType)
+                                <label class="employment-option" for="employment_type_{{ $index }}">
+                                    <input type="radio" id="employment_type_{{ $index }}" name="employment_type_preference" value="{{ $employmentType }}" required>
+                                    <span>{{ $employmentType }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="work_rights">Work Rights in Australia *</label>
+                        <select id="work_rights" name="work_rights" class="form-control" required>
+                            <option value="">Select an option</option>
+                            @foreach($workRightsOptions as $workRights)
+                                <option value="{{ $workRights }}">{{ $workRights }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availability">Availability *</label>
+                        <select id="availability" name="availability" class="form-control" required>
+                            <option value="">Select your availability</option>
+                            @foreach($availabilities as $availability)
+                                <option value="{{ $availability }}">{{ $availability }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="referral_source">How did you hear about us? *</label>
+                        <select id="referral_source" name="referral_source" class="form-control" required>
+                            <option value="">Select an option</option>
+                            @foreach($referralSources as $referralSource)
+                                <option value="{{ $referralSource }}">{{ $referralSource }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="resume">Resume (CV) *</label>
+                        <input type="file" id="resume" name="resume" class="form-control resume-control" accept=".pdf,.doc,.docx" required>
+                        <small class="text-gray-500">Upload your resume (PDF, DOC or DOCX, max 5MB)</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="cover_letter">Cover Note / Message (Optional)</label>
+                        <textarea id="cover_letter" name="cover_letter" class="form-control" maxlength="5000" placeholder="Tell us a little about yourself, your experience and what interests you about working with us."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="consent-option" for="consent">
+                            <input type="checkbox" id="consent" name="consent" value="1" required>
+                            <span>I confirm that the information provided is accurate and I consent to be contacted about relevant job opportunities.</span>
+                        </label>
                     </div>
                 </div>
-                
-                <div class="form-group">
-                    <label>Professional Reference</label>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="reference_name">Name</label>
-                            <input type="text" id="reference_name" name="reference_name" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="reference_relationship">Relationship</label>
-                            <input type="text" id="reference_relationship" name="reference_relationship" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="reference_phone">Phone</label>
-                            <input type="tel" id="reference_phone" name="reference_phone" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="resume">Resume *</label>
-                    <input type="file" id="resume" name="resume" class="form-control" accept=".pdf,.doc,.docx" required>
-                    <small class="text-gray-500">PDF, DOC, or DOCX (Max: 5MB)</small>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cover_letter">Cover Letter</label>
-                    <textarea id="cover_letter" name="cover_letter" class="form-control"></textarea>
-                </div>
+
+                <div id="career-form-error" class="career-form-error" role="alert"></div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Submit Application
+                    </button>
                 </div>
             </form>
         </div>
@@ -715,21 +803,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.apply-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const position = this.getAttribute('data-position');
-            document.getElementById('position-title').textContent = position;
             document.getElementById('job_position').value = position;
-            document.getElementById('application-form').classList.remove('hidden');
             document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' });
         });
-    });
-
-    // Toggle visa details based on citizenship status
-    document.getElementById('citizen_pr').addEventListener('change', function() {
-        document.getElementById('visa-details').classList.toggle('hidden', this.checked);
-    });
-
-    // Toggle referral details if referral source is "Friend/Referral"
-    document.getElementById('referral_source').addEventListener('change', function() {
-        document.getElementById('referral-details').classList.toggle('hidden', this.value !== 'Friend/Referral');
     });
 
     // Back to top button
@@ -751,16 +827,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            const errorContainer = document.getElementById('career-form-error');
+            errorContainer.classList.remove('active');
+            errorContainer.textContent = '';
             
-            // Simple client-side validation
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
-            // Submit form via AJAX
             const formData = new FormData(form);
-            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -769,19 +849,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Accept': 'application/json'
                 }
             })
-            .then(response => response.json())
-            .then(data => {
+            .then(response => response.json().then(data => ({ response, data })))
+            .then(({ response, data }) => {
+                if (!response.ok) {
+                    if (response.status === 422 && data.errors) {
+                        const messages = Object.values(data.errors).flat();
+                        errorContainer.textContent = messages.join(' ');
+                        errorContainer.classList.add('active');
+                        errorContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return;
+                    }
+
+                    throw new Error(data.message || 'Application submission failed.');
+                }
+
                 if (data.success) {
-                    // Show success modal
                     document.getElementById('success-modal').classList.add('active');
                     form.reset();
                 } else {
-                    alert('There was an error submitting your application. Please try again.');
+                    throw new Error(data.message || 'Application submission failed.');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error submitting your application. Please try again.');
+                errorContainer.textContent = 'There was an error submitting your application. Please try again.';
+                errorContainer.classList.add('active');
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Submit Application';
             });
         });
     }

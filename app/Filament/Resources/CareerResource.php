@@ -2,38 +2,39 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\CareerResource\Pages;
+use App\Mail\CareerInfoRequest;
+use App\Mail\CareerInterviewInvitation;
+use App\Mail\CareerRejection;
 use App\Models\Career;
 use Filament\Forms;
-use Filament\Tables;
-use Filament\Resources\Resource;
-use App\Filament\Resources\CareerResource\Pages;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Notifications\Notification;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Columns\SelectColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
-use Filament\Notifications\Notification;
-use App\Mail\CareerInterviewInvitation;
-use App\Mail\CareerRejection;
-use App\Mail\CareerInfoRequest;
-
+use Illuminate\Support\Facades\Storage;
 
 class CareerResource extends Resource
 {
     protected static ?string $model = Career::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+
     protected static ?string $navigationGroup = 'Content Management';
+
     protected static ?string $recordTitleAttribute = 'full_name';
 
     public static function getModelLabel(): string
@@ -57,26 +58,34 @@ class CareerResource extends Resource
                         TextInput::make('email')->email()->required(),
                         TextInput::make('phone'),
                         Select::make('job_position')
-                            ->options([
-                                'Care Worker' => 'Care Worker',
-                                'Registered Nurse' => 'Registered Nurse',
-                                'Support Worker' => 'Support Worker',
-                                'Administrator' => 'Administrator',
-                            ]),
+                            ->options(array_combine(Career::ROLES, Career::ROLES)),
                         Select::make('referral_source')
-                            ->options([
-                                'Indeed' => 'Indeed',
-                                'Seek' => 'Seek',
-                                'LinkedIn' => 'LinkedIn',
-                                'Company Website' => 'Company Website',
-                                'Friend/Referral' => 'Friend/Referral',
-                                'Other' => 'Other',
-                            ]),
+                            ->options(array_combine(Career::REFERRAL_SOURCES, Career::REFERRAL_SOURCES)),
                     ]),
                 ])
                 ->collapsible(),
 
-            Section::make('Eligibility Information')
+            Section::make('Application Preferences')
+                ->schema([
+                    Grid::make(2)->schema([
+                        Select::make('preferred_location')
+                            ->options(array_combine(Career::LOCATIONS, Career::LOCATIONS)),
+                        Select::make('employment_type_preference')
+                            ->options(array_combine(Career::EMPLOYMENT_TYPES, Career::EMPLOYMENT_TYPES)),
+                        Select::make('work_rights')
+                            ->options(array_combine(Career::WORK_RIGHTS_OPTIONS, Career::WORK_RIGHTS_OPTIONS)),
+                        Select::make('availability')
+                            ->options(array_combine(Career::AVAILABILITIES, Career::AVAILABILITIES)),
+                        Toggle::make('consent')
+                            ->disabled(),
+                        Textarea::make('cover_letter')
+                            ->label('Cover Note / Message')
+                            ->columnSpanFull(),
+                    ]),
+                ])
+                ->collapsible(),
+
+            Section::make('Legacy Eligibility and References')
                 ->schema([
                     Grid::make(2)->schema([
                         Toggle::make('is_australian_citizen_or_pr')
@@ -88,13 +97,6 @@ class CareerResource extends Resource
                         TextInput::make('visa_type')
                             ->label('Visa Type')
                             ->hidden(fn (callable $get) => $get('is_australian_citizen_or_pr')),
-                    ]),
-                ])
-                ->collapsible(),
-
-            Section::make('References')
-                ->schema([
-                    Grid::make(3)->schema([
                         TextInput::make('reference_name'),
                         TextInput::make('reference_relationship'),
                         TextInput::make('reference_phone'),
@@ -106,12 +108,13 @@ class CareerResource extends Resource
                 ->schema([
                     FileUpload::make('resume_path')
                         ->label('Resume/CV')
-                        ->directory('career_applications/resumes')
+                        ->disk('public')
+                        ->directory('resumes')
                         ->preserveFilenames()
                         ->acceptedFileTypes([
                             'application/pdf',
                             'application/msword',
-                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                         ])
                         ->downloadable()
                         ->openable(),
@@ -143,11 +146,14 @@ class CareerResource extends Resource
     {
         return $table
             ->columns([
-                          TextColumn::make('first_name')->searchable(),
+                TextColumn::make('first_name')->searchable(),
                 TextColumn::make('last_name')->searchable(),
                 TextColumn::make('email')
                     ->searchable(),
                 TextColumn::make('job_position')
+                    ->searchable(),
+                TextColumn::make('preferred_location')
+                    ->label('Preferred Location')
                     ->searchable(),
                 SelectColumn::make('status')
                     ->options([
@@ -159,9 +165,6 @@ class CareerResource extends Resource
                     ])
                     ->rules(['required'])
                     ->sortable(),
-                IconColumn::make('is_australian_citizen_or_pr')
-                    ->boolean()
-                    ->label('Citizen/PR'),
                 TextColumn::make('created_at')
                     ->label('Applied On')
                     ->dateTime('d M Y')
@@ -177,12 +180,7 @@ class CareerResource extends Resource
                         'rejected' => 'Rejected',
                     ]),
                 SelectFilter::make('job_position')
-                    ->options([
-                        'Care Worker' => 'Care Worker',
-                        'Registered Nurse' => 'Registered Nurse',
-                        'Support Worker' => 'Support Worker',
-                        'Administrator' => 'Administrator',
-                    ]),
+                    ->options(array_combine(Career::ROLES, Career::ROLES)),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -190,9 +188,9 @@ class CareerResource extends Resource
                 Action::make('download_cv')
                     ->label('Download CV')
                     ->icon('heroicon-o-arrow-down-tray')
-                    ->url(fn (Career $record) => $record->resume_path ? storage_path('app/' . $record->resume_path) : null)
+                    ->url(fn (Career $record) => $record->resume_path ? Storage::disk('public')->url($record->resume_path) : null)
                     ->openUrlInNewTab()
-                    ->hidden(fn (Career $record) => !$record->resume_path),
+                    ->hidden(fn (Career $record) => ! $record->resume_path),
 
                 Action::make('respond')
                     ->label('Send Response')
@@ -217,7 +215,7 @@ class CareerResource extends Resource
                     ->action(function (Career $record, array $data) {
                         // Update the record first
                         $record->update([
-                            'status' => $data['response_type'] === 'interview' ? 'interview' : 
+                            'status' => $data['response_type'] === 'interview' ? 'interview' :
                                        ($data['response_type'] === 'rejection' ? 'rejected' : 'reviewed'),
                             'response_notes' => $data['response_message'],
                             'interview_date' => $data['interview_date'] ?? null,
@@ -228,13 +226,13 @@ class CareerResource extends Resource
                             case 'interview':
                                 Mail::to($record->email)->send(
                                     new CareerInterviewInvitation(
-                                        $record, 
+                                        $record,
                                         $data['interview_date'],
                                         $data['response_message']
                                     )
                                 );
                                 break;
-                                
+
                             case 'rejection':
                                 Mail::to($record->email)->send(
                                     new CareerRejection(
@@ -243,7 +241,7 @@ class CareerResource extends Resource
                                     )
                                 );
                                 break;
-                                
+
                             case 'additional_info':
                                 Mail::to($record->email)->send(
                                     new CareerInfoRequest(
@@ -253,12 +251,12 @@ class CareerResource extends Resource
                                 );
                                 break;
                         }
-                        
-                        Notification::make() 
+
+                        Notification::make()
                             ->title('Response sent successfully')
                             ->success()
                             ->send();
-                    })
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
