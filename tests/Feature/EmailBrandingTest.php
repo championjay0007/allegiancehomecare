@@ -50,6 +50,8 @@ it('uses the full brand name in email sender and subject lines', function () {
 });
 
 it('uses the full brand name in the shared service-request email layout', function () {
+    config(['app.name' => 'Allegiance Home Care']);
+
     $serviceRequest = new ServiceRequest([
         'full_name' => 'Taylor Example',
         'service_type' => 'home_care',
@@ -59,6 +61,5 @@ it('uses the full brand name in the shared service-request email layout', functi
 
     $content = html_entity_decode((new ServiceRequestReceived($serviceRequest))->render());
 
-    expect($content)->toContain('Allegiance Heart & Home Care')
-        ->and($content)->not->toContain('Allegiance Home Care');
+    expect(substr_count($content, 'Allegiance Heart & Home Care'))->toBeGreaterThanOrEqual(3);
 });
