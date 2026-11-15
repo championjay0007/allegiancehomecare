@@ -264,21 +264,57 @@
         padding: clamp(24px, 5vw, 50px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         margin-top: 40px;
+        border: 1px solid #dce8f4;
+        border-top: 5px solid #004E92;
     }
 
     .form-title {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 34px;
+    }
+
+    .form-eyebrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        margin: 0 auto 8px;
+        color: #138875;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .form-eyebrow i {
+        font-size: 0.85rem;
     }
 
     .form-title h2 {
+        position: relative;
+        display: inline-block;
         font-size: clamp(1.8rem, 4vw, 2.4rem);
         font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 10px;
+        color: #004E92;
+        margin: 0 0 14px;
+        padding-bottom: 12px;
+    }
+
+    .form-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 62px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #00A0C6, #1DBFAD);
+        transform: translateX(-50%);
     }
 
     .form-title p {
+        max-width: 640px;
+        margin: 0 auto;
         color: var(--gray);
     }
 
@@ -297,6 +333,27 @@
 
     .form-group.full-width {
         grid-column: 1 / -1;
+    }
+
+    .form-group.employment-section {
+        padding: 18px 20px 16px;
+        margin-bottom: 18px;
+        border: 1px solid #cce9e1;
+        border-left: 4px solid var(--primary);
+        border-radius: 12px;
+        background: linear-gradient(135deg, #effaf7 0%, #e7f6f1 100%);
+    }
+
+    .employment-section > label {
+        margin-bottom: 4px;
+        color: #004E92;
+        font-size: 1.02rem;
+    }
+
+    .employment-help {
+        margin: 0 0 10px;
+        color: #5b7771;
+        font-size: 0.9rem;
     }
 
     .form-group label {
@@ -334,8 +391,8 @@
     .employment-options {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px 24px;
-        padding: 8px 0;
+        gap: 10px;
+        padding: 4px 0 0;
     }
 
     .employment-option,
@@ -346,11 +403,41 @@
         cursor: pointer;
     }
 
+    .form-group .employment-option {
+        display: flex;
+        align-items: center;
+        padding: 10px 14px;
+        border: 1px solid #d5e8e2;
+        border-radius: 8px;
+        background: #fff;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .employment-option:hover {
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(19, 136, 117, 0.1);
+        transform: translateY(-1px);
+    }
+
+    .employment-option:has(input:checked) {
+        border-color: #138875;
+        box-shadow: 0 0 0 3px rgba(29, 191, 173, 0.15);
+    }
+
+    .employment-option input:checked + span {
+        color: #004E92;
+        font-weight: 700;
+    }
+
     .employment-option input,
     .consent-option input {
         flex: 0 0 auto;
         margin-top: 4px;
         accent-color: var(--primary);
+    }
+
+    .employment-option input {
+        margin-top: 0;
     }
 
     .resume-control {
@@ -589,6 +676,7 @@
     <div class="container">
         <div class="application-form">
             <div class="form-title">
+                <p class="form-eyebrow"><i class="fas fa-heart" aria-hidden="true"></i> Career Application</p>
                 <h2>Join Our Caring Team</h2>
                 <p>Interested in making a difference? Submit your application below and we’ll be in touch if there’s a suitable opportunity.</p>
             </div>
@@ -637,8 +725,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group full-width">
-                        <label>Employment Type Preference *</label>
+                    <div class="form-group full-width employment-section" role="group" aria-labelledby="employment-type-label" aria-describedby="employment-type-help">
+                        <label id="employment-type-label">Employment Type Preference *</label>
+                        <p id="employment-type-help" class="employment-help">Choose the work arrangement that suits you best.</p>
                         <div class="employment-options">
                             @foreach($employmentTypes as $index => $employmentType)
                                 <label class="employment-option" for="employment_type_{{ $index }}">
