@@ -273,23 +273,6 @@
         margin-bottom: 34px;
     }
 
-    .form-eyebrow {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-        margin: 0 auto 8px;
-        color: #138875;
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-    }
-
-    .form-eyebrow i {
-        font-size: 0.85rem;
-    }
-
     .form-title h2 {
         position: relative;
         display: inline-block;
@@ -699,7 +682,6 @@
     <div class="container">
         <div class="application-form">
             <div class="form-title">
-                <p class="form-eyebrow"><i class="fas fa-heart" aria-hidden="true"></i> Career Application</p>
                 <h2>Join Our Caring Team</h2>
                 <p>Interested in making a difference? Submit your application below and we’ll be in touch if there’s a suitable opportunity.</p>
             </div>
