@@ -401,72 +401,6 @@
         color: #fff;
     }
 
-    /* Success Modal */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .modal-content {
-        background: white;
-        border-radius: 12px;
-        padding: 40px;
-        max-width: 500px;
-        width: 90%;
-        text-align: center;
-        transform: translateY(20px);
-        transition: all 0.3s ease;
-    }
-
-    .modal-overlay.active .modal-content {
-        transform: translateY(0);
-    }
-
-    .modal-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(29, 191, 173, 0.1);
-        border-radius: 50%;
-        color: var(--primary);
-    }
-
-    .modal-icon svg {
-        width: 40px;
-        height: 40px;
-    }
-
-    .modal-title {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 15px;
-        color: var(--dark);
-    }
-
-    .modal-text {
-        color: var(--gray);
-        margin-bottom: 30px;
-    }
-
     /* Back to Top Button */
     .back-to-top {
         position: fixed;
@@ -776,20 +710,6 @@
     </div>
 </section>
 
-<!-- Success Modal -->
-<div class="modal-overlay" id="success-modal">
-    <div class="modal-content">
-        <div class="modal-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-        </div>
-        <h3 class="modal-title">Application Submitted!</h3>
-        <p class="modal-text">Thank you for your application. We'll review your information and get back to you soon.</p>
-        <button id="close-modal" class="btn btn-primary">Close</button>
-    </div>
-</div>
-
 <!-- Back to Top Button -->
 <div class="back-to-top" id="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
@@ -863,9 +783,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error(data.message || 'Application submission failed.');
                 }
 
-                if (data.success) {
-                    document.getElementById('success-modal').classList.add('active');
-                    form.reset();
+                if (data.success && data.redirect) {
+                    window.location.assign(data.redirect);
                 } else {
                     throw new Error(data.message || 'Application submission failed.');
                 }
@@ -882,10 +801,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close success modal
-    document.getElementById('close-modal').addEventListener('click', function() {
-        document.getElementById('success-modal').classList.remove('active');
-    });
 });
 </script>
 @endsection

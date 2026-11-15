@@ -23,6 +23,11 @@ class CareerController extends Controller
         ]);
     }
 
+    public function thankYou()
+    {
+        return view('careers.thank-you');
+    }
+
     public function submitApplication(Request $request)
     {
         $validated = $request->validate([
@@ -67,9 +72,14 @@ class CareerController extends Controller
         // Send notification email to admin
         Mail::to(config('mail.from.address'))->send(new NewCareerApplication($application));
 
+        if (! $request->expectsJson()) {
+            return redirect()->route('careers.thank-you');
+        }
+
         return response()->json([
             'success' => true,
             'message' => 'Application submitted successfully',
+            'redirect' => route('careers.thank-you'),
         ]);
     }
 }

@@ -76,6 +76,7 @@ Route::get('/thank-you-support-at-home', function () {
 Route::post('/submit-booking', [BookingController::class, 'submitForm'])->name('booking.submit');
 
 Route::get('/careers', [CareerController::class, 'index'])->name('careers');
+Route::get('/careers/thank-you', [CareerController::class, 'thankYou'])->name('careers.thank-you');
 Route::post('/careers/submit', [CareerController::class, 'submitApplication'])->name('careers.submit');
 
 Route::get('/privacy', [PrivacyController::class,'index'])->name('privacy');

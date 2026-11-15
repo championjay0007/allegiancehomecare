@@ -55,7 +55,9 @@ it('stores career application details and notifies the applicant and admin', fun
         'consent' => '1',
         'cover_letter' => 'I enjoy helping people.',
         'resume' => UploadedFile::fake()->create('resume.pdf', 100, 'application/pdf'),
-    ])->assertOk()->assertJsonPath('success', true);
+    ])->assertOk()
+        ->assertJsonPath('success', true)
+        ->assertJsonPath('redirect', route('careers.thank-you'));
 
     $application = Career::query()->sole();
 
@@ -75,4 +77,14 @@ it('stores career application details and notifies the applicant and admin', fun
             && str_contains($content, 'Australian citizen')
             && str_contains($content, 'I enjoy helping people.');
     });
+});
+
+it('shows the careers confirmation at its thank-you path', function () {
+    $this->get(route('careers.thank-you'))
+        ->assertOk()
+        ->assertSee('Thank you for your application.')
+        ->assertSee("We've received your details and resume.", false)
+        ->assertSee('current or upcoming opportunity with Allegiance Heart & Home Care.')
+        ->assertSee('We appreciate your interest in joining our care team.')
+        ->assertSee(route('careers'), false);
 });
