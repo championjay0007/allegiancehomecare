@@ -22,7 +22,9 @@ class CareerRejection extends Mailable
 
     public function build()
     {
-        return $this->subject('Update on Your Application for ' . $this->application->job_position)
+        return $this->subject(
+            'Update on Your Application for ' . $this->application->job_position . ' - Allegiance Heart & Home Care'
+        )
                     ->markdown('emails.career_rejection');
     }
 }

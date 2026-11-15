@@ -45,5 +45,7 @@
     {{ $feedback->created_at->format('d M Y H:i') }}
 </div>
 
+<footer>Allegiance Heart &amp; Home Care</footer>
+
 </body>
 </html>

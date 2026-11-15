@@ -20,7 +20,7 @@ class AdminContactNotification extends Mailable
 
     public function build()
     {
-        return $this->subject('New Contact Form Submission')
+        return $this->subject('New Contact Form Submission - Allegiance Heart & Home Care')
                     ->markdown('emails.admin-notification')
                     ->with(['contact' => $this->contact]);
     }

@@ -71,11 +71,12 @@ it('stores career application details and notifies the applicant and admin', fun
 
     Storage::disk('public')->assertExists($application->resume_path);
     Mail::assertSent(NewCareerApplication::class, function (NewCareerApplication $mail): bool {
-        $content = $mail->render();
+        $content = html_entity_decode($mail->render());
 
         return str_contains($content, 'Sydney / NSW')
             && str_contains($content, 'Australian citizen')
-            && str_contains($content, 'I enjoy helping people.');
+            && str_contains($content, 'I enjoy helping people.')
+            && str_contains($content, 'Allegiance Heart & Home Care');
     });
 });
 

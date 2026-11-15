@@ -20,7 +20,7 @@ class ContactFormConfirmation extends Mailable
 
     public function build()
     {
-        return $this->subject('We Received Your Message')
+        return $this->subject('We Received Your Message - Allegiance Heart & Home Care')
                     ->markdown('emails.contact-confirmation')
                     ->with(['contact' => $this->contact]);
     }

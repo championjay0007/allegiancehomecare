@@ -24,7 +24,9 @@ class CareerInterviewInvitation extends Mailable
 
     public function build()
     {
-        return $this->subject('Interview Invitation for ' . $this->application->job_position)
+        return $this->subject(
+            'Interview Invitation for ' . $this->application->job_position . ' - Allegiance Heart & Home Care'
+        )
                     ->markdown('emails.career_interview_invitation');
     }
 }

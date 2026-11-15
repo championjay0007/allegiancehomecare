@@ -20,7 +20,7 @@ class NewServiceRequestNotification extends Mailable
 
     public function build()
     {
-        return $this->subject('New Service Request Submission')
+        return $this->subject('New Service Request Submission - Allegiance Heart & Home Care')
                     ->markdown('emails.new_service_request_notification')
                     ->with([
                         'request' => $this->serviceRequest,

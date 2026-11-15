@@ -27,6 +27,7 @@ class ServiceRequestResponse extends Mailable
         $subject = $this->isAdminCopy 
             ? "[Admin Copy] Response to Service Request #{$this->serviceRequest->id}"
             : "Response to Your Service Request #{$this->serviceRequest->id}";
+        $subject .= ' - Allegiance Heart & Home Care';
 
         return $this->subject($subject)
             ->markdown('emails.service_request_response')

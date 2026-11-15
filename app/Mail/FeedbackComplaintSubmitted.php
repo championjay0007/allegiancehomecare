@@ -31,7 +31,7 @@ class FeedbackComplaintSubmitted extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Feedback / Complaint Submitted - ' . $this->feedback->category,
+            subject: 'New Feedback / Complaint Submitted - ' . $this->feedback->category . ' - Allegiance Heart & Home Care',
         );
     }
 

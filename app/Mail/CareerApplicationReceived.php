@@ -20,7 +20,7 @@ class CareerApplicationReceived extends Mailable
 
     public function build()
     {
-        return $this->subject('Your Application Has Been Received')
+        return $this->subject('Your Application Has Been Received - Allegiance Heart & Home Care')
                     ->markdown('emails.career_application_received')
                     ->with([
                         'application' => $this->application,

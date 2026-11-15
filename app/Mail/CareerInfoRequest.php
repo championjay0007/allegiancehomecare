@@ -22,7 +22,7 @@ class CareerInfoRequest extends Mailable
 
     public function build()
     {
-        return $this->subject('Additional Information Required for Your Application')
+        return $this->subject('Additional Information Required for Your Application - Allegiance Heart & Home Care')
                     ->markdown('emails.career_info_request');
     }
 }

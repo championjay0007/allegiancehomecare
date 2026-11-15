@@ -20,7 +20,9 @@ class NewCareerApplication extends Mailable
 
     public function build()
     {
-        return $this->subject('New Career Application: ' . $this->application->job_position)
+        return $this->subject(
+            'New Career Application: ' . $this->application->job_position . ' - Allegiance Heart & Home Care'
+        )
                     ->markdown('emails.new_career_application')
                     ->with([
                         'application' => $this->application,

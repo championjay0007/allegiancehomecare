@@ -20,4 +20,6 @@ View Full Request Details
 @endcomponent
 
 Submitted at: {{ $request->created_at->format('F j, Y \a\t g:i a') }}
+
+Allegiance Heart & Home Care
 @endcomponent

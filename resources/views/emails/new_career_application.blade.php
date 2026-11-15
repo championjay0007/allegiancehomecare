@@ -23,4 +23,6 @@ View Application
 @endcomponent
 
 Submitted at: {{ $application->created_at->format('F j, Y \a\t g:i a') }}
+
+Allegiance Heart & Home Care
 @endcomponent
