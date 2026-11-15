@@ -1,7 +1,7 @@
 @component('mail::layout')
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-{{ config('app.name') }}
+Allegiance Heart & Home Care
 @endslot
 @endcomponent
 
@@ -34,5 +34,5 @@ If you didn't request this contact, please ignore this email.
 @endcomponent
 
 @component('mail::footer')
-© {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+© {{ date('Y') }} Allegiance Heart & Home Care. All rights reserved.
 @endcomponent

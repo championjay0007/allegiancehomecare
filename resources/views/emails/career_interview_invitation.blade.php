@@ -3,7 +3,7 @@
 
 Dear {{ $application->first_name }},
 
-Thank you for your application for the **{{ $application->job_position }}** position at {{ config('app.name') }}.
+Thank you for your application for the **{{ $application->job_position }}** position at Allegiance Heart & Home Care.
 
 We would like to invite you for an interview on:
 
@@ -20,5 +20,5 @@ Please confirm your availability by replying to this email.
 We look forward to meeting you!
 
 Kind regards,  
-{{ config('app.name') }} Team
+Allegiance Heart & Home Care Team
 @endcomponent

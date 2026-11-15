@@ -23,7 +23,7 @@ class BrochureDownload extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your Allegiance Care Brochure',
+            subject: 'Your Allegiance Heart & Home Care Consumer Handbook',
         );
     }
 
@@ -42,7 +42,7 @@ class BrochureDownload extends Mailable
 {
     return [
         Attachment::fromStorageDisk('public', $this->brochurePath)
-            ->as('Allegiance-Care-Services.pdf')
+            ->as('Allegiance-Heart-and-Home-Care-Consumer-Handbook.pdf')
             ->withMime('application/pdf')
     ];
 }

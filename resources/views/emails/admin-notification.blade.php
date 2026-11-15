@@ -1,7 +1,7 @@
 @component('mail::layout')
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-New Contact Submission - {{ config('app.name') }}
+New Contact Submission - Allegiance Heart & Home Care
 @endslot
 @endcomponent
 
@@ -29,5 +29,5 @@ Reply Directly
 @endcomponent
 
 @component('mail::footer')
-© {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+© {{ date('Y') }} Allegiance Heart & Home Care. All rights reserved.
 @endcomponent

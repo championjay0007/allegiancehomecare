@@ -24,8 +24,8 @@ class PricingScheduleDownload extends Mailable
     public function envelope(): Envelope
     {
         $subject = $this->pricingType === 'ndis' 
-            ? 'Your NDIS Pricing Schedule from Allegiance Care'
-            : 'Your Aged Care Pricing Schedule from Allegiance Care';
+            ? 'Your NDIS Pricing Schedule from Allegiance Heart & Home Care'
+            : 'Your Aged Care Pricing Schedule from Allegiance Heart & Home Care';
 
         return new Envelope(
             subject: $subject,
@@ -48,8 +48,8 @@ class PricingScheduleDownload extends Mailable
     public function attachments(): array
     {
         $filename = $this->pricingType === 'ndis' 
-            ? 'allegiance-care-ndis-pricing.pdf' 
-            : 'allegiance-care-agedcare-pricing.pdf';
+            ? 'Allegiance-Heart-and-Home-Care-NDIS-Pricing.pdf'
+            : 'Allegiance-Heart-and-Home-Care-Aged-Care-Pricing.pdf';
 
         return [
             Attachment::fromStorageDisk('public', $this->pricingPath)

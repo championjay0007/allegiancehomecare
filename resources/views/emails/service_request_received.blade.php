@@ -16,5 +16,5 @@ Visit Our Website
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Allegiance Heart & Home Care
 @endcomponent

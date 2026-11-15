@@ -117,3 +117,22 @@ it('shows a clear confirmation after brochure and pricing requests', function ()
         ->assertOk()
         ->assertSee('Your pricing schedule has been sent to your email address.');
 });
+
+it('uses the complete brand name in brochure and pricing emails', function () {
+    $brochureEmail = new BrochureDownload('Taylor', 'Example', 'brochures/allegiance-care-brochure.pdf');
+    $pricingEmail = new PricingScheduleDownload(
+        'Taylor',
+        'Example',
+        'brochures/homecare-pricing.pdf',
+        'homecare'
+    );
+
+    expect($brochureEmail->envelope()->subject)
+        ->toBe('Your Allegiance Heart & Home Care Consumer Handbook')
+        ->and(html_entity_decode($brochureEmail->render()))
+        ->toContain('Allegiance Heart & Home Care')
+        ->and($pricingEmail->envelope()->subject)
+        ->toBe('Your Aged Care Pricing Schedule from Allegiance Heart & Home Care')
+        ->and(html_entity_decode($pricingEmail->render()))
+        ->toContain('Allegiance Heart & Home Care');
+});

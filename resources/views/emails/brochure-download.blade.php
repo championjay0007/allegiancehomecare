@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Allegiance Care Consumer Handbook</title>
+    <title>Your Allegiance Heart &amp; Home Care Consumer Handbook</title>
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -97,7 +97,7 @@
         <p>We look forward to the opportunity to serve you with <em>"compassion you can trust, care you deserve"</em>.</p>
         
         <div class="footer">
-            <p>© {{ date('Y') }} Allegiance Heart & Home Care. All rights reserved.</p>
+            <p>© {{ date('Y') }} Allegiance Heart &amp; Home Care. All rights reserved.</p>
             <p>If you didn't request this information, please ignore this email.</p>
         </div>
     </div>

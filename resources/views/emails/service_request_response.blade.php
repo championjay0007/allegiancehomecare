@@ -24,5 +24,5 @@ Visit Your Dashboard -->
 @endif
 
 Thanks,<br>
-{{ config('app.name') }}
+Allegiance Heart & Home Care
 @endcomponent

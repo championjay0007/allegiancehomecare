@@ -1,7 +1,7 @@
 @component('mail::layout')
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-{{ config('app.name') }} - Response to Your Enquiry
+Allegiance Heart & Home Care - Response to Your Enquiry
 @endslot
 @endcomponent
 
@@ -37,5 +37,5 @@ Contact Us Again
 @endcomponent
 
 @component('mail::footer')
-© {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+© {{ date('Y') }} Allegiance Heart & Home Care. All rights reserved.
 @endcomponent

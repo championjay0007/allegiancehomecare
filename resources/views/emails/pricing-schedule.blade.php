@@ -17,7 +17,7 @@
             <h1>Your Pricing Schedule, {{ $name }}</h1>
         </div>
         
-        <p>Thank you for your interest in Allegiance heart and home. We've attached our detailed pricing schedule as requested.</p>
+        <p>Thank you for your interest in Allegiance Heart &amp; Home Care. We've attached our detailed pricing schedule as requested.</p>
         
         <p>If you have any questions about our pricing or services, please don't hesitate to contact us:</p>
         
@@ -27,7 +27,7 @@
         </p>
         
         <div class="footer">
-            <p>© {{ date('Y') }} Allegiance Heart & Home Care</p>
+            <p>© {{ date('Y') }} Allegiance Heart &amp; Home Care</p>
         </div>
     </div>
 </body>

@@ -3,7 +3,7 @@
 
 Dear {{ $application->first_name }},
 
-Thank you for your interest in the **{{ $application->job_position }}** position at {{ config('app.name') }}.
+Thank you for your interest in the **{{ $application->job_position }}** position at Allegiance Heart & Home Care.
 
 After careful consideration, we regret to inform you that we have decided to proceed with other candidates whose qualifications more closely match our current needs.
 
@@ -17,5 +17,5 @@ We appreciate the time and effort you invested in your application and encourage
 Thank you again for your interest in our organization.
 
 Best regards,  
-{{ config('app.name') }} Team
+Allegiance Heart & Home Care Team
 @endcomponent

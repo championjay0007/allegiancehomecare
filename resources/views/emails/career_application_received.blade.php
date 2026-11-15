@@ -3,7 +3,7 @@
 
 Dear {{ $application->first_name }},
 
-We've received your application for the **{{ $application->job_position }}** position at {{ config('app.name') }}.
+We've received your application for the **{{ $application->job_position }}** position at Allegiance Heart & Home Care.
 
 **Application Details:**
 - Name: {{ $application->first_name }} {{ $application->last_name }}
@@ -17,5 +17,5 @@ Contact Us
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Allegiance Heart & Home Care
 @endcomponent
