@@ -91,7 +91,7 @@
     }
 
     .nav-container {
-        max-width: 1200px;
+        max-width: 1600px;
         margin: 0 auto;
         padding: 0 1rem;
         display: flex;
@@ -379,6 +379,7 @@
         top: 0;
         left: 0;
         width: 100%;
+        box-sizing: border-box;
         height: 100vh;
         background-color: var(--light);
         z-index: 1001;
@@ -464,6 +465,32 @@
         
         .mega-menu-featured {
             grid-column: span 3;
+        }
+    }
+
+    @media (min-width: 1361px) and (max-width: 1500px) {
+        .desktop-nav {
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .cta-button {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+    }
+
+    @media (max-width: 1360px) {
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-toggle {
+            display: block;
         }
     }
 

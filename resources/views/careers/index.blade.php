@@ -436,6 +436,14 @@
         accent-color: var(--primary);
     }
 
+    .employment-option input[type="radio"],
+    .consent-option input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        border: 0;
+    }
+
     .employment-option input {
         margin-top: 0;
     }
@@ -461,6 +469,16 @@
     .consent-option {
         line-height: 1.5;
         font-weight: 400 !important;
+    }
+
+    .form-group .consent-option {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .consent-option span {
+        min-width: 0;
     }
 
     .career-form-error {
@@ -563,6 +581,11 @@
         .employment-options {
             flex-direction: column;
             gap: 10px;
+        }
+
+        .application-form .form-actions .btn {
+            width: 100%;
+            min-width: 0;
         }
 
         .benefits-grid {
