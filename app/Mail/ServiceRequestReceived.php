@@ -20,8 +20,7 @@ class ServiceRequestReceived extends Mailable
 
     public function build()
     {
-        return $this->from(config('mail.from.address'), 'Allegiance Heart & Home Care')
-                    ->subject('Your Service Request Has Been Received - Allegiance Heart & Home Care')
+        return $this->subject('Your Service Request Has Been Received - Allegiance Heart & Home Care')
                     ->markdown('emails.service_request_received')
                     ->with([
                         'request' => $this->serviceRequest,
