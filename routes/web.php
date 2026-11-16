@@ -111,22 +111,4 @@ Route::get('/test-brochure', function() {
 
 
 
-use Illuminate\Support\Facades\Mail;
-
-Route::get('/test-mail', function () {
-    Mail::raw('This is a test email from Laravel.', function ($message) {
-        $message->to('olasjay95@gmail.com')
-                ->subject('Test Email');
-    });
-
-    return 'Test email sent!';
-});
-
-
-
-
-
-
-
-
 require __DIR__.'/auth.php';
