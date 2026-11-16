@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BrochureDownload;
+use App\Mail\NewBrochureRequestNotification;
 use App\Mail\PricingScheduleDownload;
 use App\Models\BrochureRequest;
 use App\Rules\Recaptcha; // Imported the reCAPTCHA rule here
@@ -60,6 +61,12 @@ class BrochureController extends Controller
         // Mark email as sent
         $brochureRequest->update(['email_sent' => true]);
 
+        $adminAddress = config('mail.admin_address') ?: config('mail.from.address');
+        Mail::to($adminAddress)->send(new NewBrochureRequestNotification(
+            $brochureRequest,
+            'Consumer handbook request'
+        ));
+
         return redirect()->route('booking.thank-you', ['type' => 'brochure']);
     }
     
@@ -112,7 +119,13 @@ class BrochureController extends Controller
 
         // Mark email as sent
         $pricingRequest->update(['email_sent' => true]);
-        
+
+        $adminAddress = config('mail.admin_address') ?: config('mail.from.address');
+        Mail::to($adminAddress)->send(new NewBrochureRequestNotification(
+            $pricingRequest,
+            $pricingType === 'ndis' ? 'NDIS pricing request' : 'Home care pricing request'
+        ));
+
         return redirect()->route('booking.thank-you', ['type' => 'pricing']);
     }
 }

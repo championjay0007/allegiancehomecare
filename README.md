@@ -27,9 +27,9 @@ Only use the stash command if that file path exists and has local changes; chang
 
 The script fetches the latest code from GitHub, installs production dependencies, runs database migrations, and refreshes Laravel's caches. Production Vite assets are built before deployment and included in Git, so cPanel does not need Node.js/npm. If npm is available, the script rebuilds those assets; otherwise, it uses the prebuilt files. It does not replace `.env` or delete uploaded files. cPanel needs Git, PHP 8.2+, and Composer in Terminal. If cPanel uses a versioned PHP command, run `PHP_BIN=ea-php82 DEPLOY_BRANCH=main ./scripts/deploy.sh`. Back up the production database before deploying migrations. Keep the domain's document root pointed at the checkout's `public` folder.
 
-## Career application notifications
+## Form email notifications
 
-Set `CAREER_APPLICATIONS_EMAIL` in the production `.env` to the inbox that should receive career applications. It is separate from `MAIL_FROM_ADDRESS`, which remains the sender address. If unset, career notifications continue to go to `MAIL_FROM_ADDRESS` for backward compatibility. After changing `.env`, refresh Laravel's configuration cache by running the deployment script or `php artisan config:cache`.
+Set `ADMIN_NOTIFICATION_EMAIL` in `.env` to the inbox for contact, booking, feedback, and brochure/pricing form notifications. `CAREER_APPLICATIONS_EMAIL` can override the recipient for career applications; otherwise it uses the admin notification address. Both settings fall back to `MAIL_FROM_ADDRESS` for backward compatibility. `MAIL_FROM_ADDRESS` remains the sender address. After changing `.env`, refresh Laravel's configuration cache by running the deployment script or `php artisan config:cache`. Anonymous feedback has no requester email, so it only sends the admin notification.
 
 ## About Laravel
 

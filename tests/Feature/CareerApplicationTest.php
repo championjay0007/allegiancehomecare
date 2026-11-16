@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\CareerApplicationReceived;
 use App\Mail\NewCareerApplication;
 use App\Models\Career;
 use Illuminate\Http\UploadedFile;
@@ -74,6 +75,7 @@ it('stores career application details and notifies the applicant and admin', fun
         ->and($application->consent)->toBeTrue();
 
     Storage::disk('public')->assertExists($application->resume_path);
+    Mail::assertSent(CareerApplicationReceived::class, fn (CareerApplicationReceived $mail): bool => $mail->hasTo('taylor@example.com'));
     Mail::assertSent(NewCareerApplication::class, function (NewCareerApplication $mail) use ($application): bool {
         $content = html_entity_decode($mail->render());
         $mail->assertHasAttachmentFromStorageDisk('public', $application->resume_path, 'resume.pdf');
@@ -84,6 +86,33 @@ it('stores career application details and notifies the applicant and admin', fun
             && str_contains($content, 'I enjoy helping people.')
             && str_contains($content, 'Allegiance Heart & Home Care');
     });
+});
+
+it('falls back to the sender address if cached career recipient config is missing', function () {
+    Mail::fake();
+    Storage::fake('public');
+    config([
+        'mail.from.address' => 'fallback@example.com',
+        'mail.admin_address' => null,
+        'mail.career_applications_address' => null,
+    ]);
+
+    $this->postJson(route('careers.submit'), [
+        'first_name' => 'Taylor',
+        'last_name' => 'Example',
+        'email' => 'taylor@example.com',
+        'phone' => '0400000000',
+        'job_position' => 'Support Worker',
+        'preferred_location' => 'Sydney / NSW',
+        'employment_type_preference' => 'Part-time',
+        'work_rights' => 'Australian citizen',
+        'availability' => 'Weekdays',
+        'referral_source' => 'Allegiance website',
+        'consent' => '1',
+        'resume' => UploadedFile::fake()->create('resume.pdf', 100, 'application/pdf'),
+    ])->assertOk();
+
+    Mail::assertSent(NewCareerApplication::class, fn (NewCareerApplication $mail): bool => $mail->hasTo('fallback@example.com'));
 });
 
 it('shows the careers confirmation at its thank-you path', function () {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Mail\BrochureDownload;
+use App\Mail\NewBrochureRequestNotification;
 use App\Mail\NewServiceRequestNotification;
 use App\Mail\PricingScheduleDownload;
 use App\Mail\ServiceRequestReceived;
@@ -34,6 +35,7 @@ it('shows a two-step booking form with only the requested details', function () 
 
 it('redirects booking submissions to the conversion thank-you page', function () {
     Mail::fake();
+    config(['mail.admin_address' => 'admin@example.com']);
 
     $response = $this->postJson(route('booking.submit'), [
         'service_type' => 'home_care',
@@ -55,8 +57,8 @@ it('redirects booking submissions to the conversion thank-you page', function ()
         );
 
     expect(ServiceRequest::count())->toBe(1);
-    Mail::assertSent(ServiceRequestReceived::class);
-    Mail::assertSent(NewServiceRequestNotification::class);
+    Mail::assertSent(ServiceRequestReceived::class, fn (ServiceRequestReceived $mail): bool => $mail->hasTo('taylor@example.com'));
+    Mail::assertSent(NewServiceRequestNotification::class, fn (NewServiceRequestNotification $mail): bool => $mail->hasTo('admin@example.com'));
 });
 
 it('shows booking confirmation with the one-business-day follow-up', function () {
@@ -69,6 +71,7 @@ it('shows booking confirmation with the one-business-day follow-up', function ()
 
 it('redirects brochure requests to the conversion thank-you page', function () {
     Mail::fake();
+    config(['mail.admin_address' => 'admin@example.com']);
     Http::fake([
         'www.google.com/recaptcha/api/siteverify' => Http::response(['success' => true]),
     ]);
@@ -84,11 +87,17 @@ it('redirects brochure requests to the conversion thank-you page', function () {
     ])->assertRedirect(route('booking.thank-you', ['type' => 'brochure']));
 
     expect(BrochureRequest::count())->toBe(1);
-    Mail::assertSent(BrochureDownload::class);
+    Mail::assertSent(BrochureDownload::class, fn (BrochureDownload $mail): bool => $mail->hasTo('taylor@example.com'));
+    Mail::assertSent(
+        NewBrochureRequestNotification::class,
+        fn (NewBrochureRequestNotification $mail): bool => $mail->hasTo('admin@example.com')
+            && str_contains($mail->render(), 'Consumer handbook request')
+    );
 });
 
 it('redirects pricing requests to the conversion thank-you page', function () {
     Mail::fake();
+    config(['mail.admin_address' => 'admin@example.com']);
     Http::fake([
         'www.google.com/recaptcha/api/siteverify' => Http::response(['success' => true]),
     ]);
@@ -105,7 +114,15 @@ it('redirects pricing requests to the conversion thank-you page', function () {
     ])->assertRedirect(route('booking.thank-you', ['type' => 'pricing']));
 
     expect(BrochureRequest::count())->toBe(1);
-    Mail::assertSent(PricingScheduleDownload::class);
+    Mail::assertSent(
+        PricingScheduleDownload::class,
+        fn (PricingScheduleDownload $mail): bool => $mail->hasTo('taylor@example.com')
+    );
+    Mail::assertSent(
+        NewBrochureRequestNotification::class,
+        fn (NewBrochureRequestNotification $mail): bool => $mail->hasTo('admin@example.com')
+            && str_contains($mail->render(), 'Home care pricing request')
+    );
 });
 
 it('shows a clear confirmation after brochure and pricing requests', function () {

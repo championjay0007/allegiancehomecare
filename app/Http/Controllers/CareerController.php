@@ -70,7 +70,10 @@ class CareerController extends Controller
         Mail::to($application->email)->send(new CareerApplicationReceived($application));
 
         // Send notification email to admin
-        Mail::to(config('mail.career_applications_address'))->send(new NewCareerApplication($application));
+        $adminAddress = config('mail.career_applications_address')
+            ?: config('mail.admin_address')
+            ?: config('mail.from.address');
+        Mail::to($adminAddress)->send(new NewCareerApplication($application));
 
         if (! $request->expectsJson()) {
             return redirect()->route('careers.thank-you');

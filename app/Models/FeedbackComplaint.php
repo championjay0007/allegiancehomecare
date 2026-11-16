@@ -14,6 +14,10 @@ class FeedbackComplaint extends Model
         'email',
         'message',
         'category',
-        'anonymous'
+        'anonymous',
+    ];
+
+    protected $casts = [
+        'anonymous' => 'boolean',
     ];
 }

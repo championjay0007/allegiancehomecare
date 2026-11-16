@@ -2,16 +2,14 @@
 
 namespace App\Mail;
 
+use App\Models\FeedbackComplaint;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\FeedbackComplaint;
-use Illuminate\Support\Str;
 
-class FeedbackComplaintSubmitted extends Mailable implements ShouldQueue
+class FeedbackComplaintSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,7 +29,7 @@ class FeedbackComplaintSubmitted extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Feedback / Complaint Submitted - ' . $this->feedback->category . ' - Allegiance Heart & Home Care',
+            subject: 'New Feedback / Complaint Submitted - '.$this->feedback->category.' - Allegiance Heart & Home Care',
         );
     }
 

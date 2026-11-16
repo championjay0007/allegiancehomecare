@@ -64,7 +64,8 @@ const GENDER_OPTIONS = [
         Mail::to($validated['email'])->send(new ServiceRequestReceived($serviceRequest));
 
         // Notification email to admin
-        Mail::to(config('mail.from.address'))->send(new NewServiceRequestNotification($serviceRequest));
+        $adminAddress = config('mail.admin_address') ?: config('mail.from.address');
+        Mail::to($adminAddress)->send(new NewServiceRequestNotification($serviceRequest));
 
      return response()->json([
          'success' => true,
@@ -81,10 +82,11 @@ const GENDER_OPTIONS = [
             'errors' => $e->validator->errors()->toArray()
         ], 422);
     } catch (\Exception $e) {
+        report($e);
+
         return response()->json([
             'success' => false,
             'message' => 'An unexpected error occurred. Please try again.',
-            'error' => $e->getMessage()
         ], 500);
     }
 }

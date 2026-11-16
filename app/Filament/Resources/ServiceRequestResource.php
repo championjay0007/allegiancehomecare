@@ -230,7 +230,7 @@ class ServiceRequestResource extends Resource
                         
                         if ($data['send_copy_to_admin']) {
                             // Send copy to admin
-                            Mail::to(config('mail.from.address'))
+                            Mail::to(config('mail.admin_address') ?: config('mail.from.address'))
                                 ->send(new ServiceRequestResponse($record, $data['response'], true));
                         }
                         
@@ -264,7 +264,7 @@ class ServiceRequestResource extends Resource
                                 
                                 if ($data['send_copy_to_admin']) {
                                     // Send copy to admin
-                                    Mail::to(config('mail.from.address'))
+                                    Mail::to(config('mail.admin_address') ?: config('mail.from.address'))
                                         ->send(new ServiceRequestResponse($record, $data['response'], true));
                                 }
                                 
