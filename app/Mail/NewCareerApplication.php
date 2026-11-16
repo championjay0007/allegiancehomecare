@@ -26,6 +26,11 @@ class NewCareerApplication extends Mailable
                     ->markdown('emails.new_career_application')
                     ->with([
                         'application' => $this->application,
-                    ]);
+                    ])
+                    ->attachFromStorageDisk(
+                        'public',
+                        $this->application->resume_path,
+                        'resume.' . pathinfo($this->application->resume_path, PATHINFO_EXTENSION)
+                    );
     }
 }

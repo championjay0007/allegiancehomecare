@@ -70,8 +70,9 @@ it('stores career application details and notifies the applicant and admin', fun
         ->and($application->consent)->toBeTrue();
 
     Storage::disk('public')->assertExists($application->resume_path);
-    Mail::assertSent(NewCareerApplication::class, function (NewCareerApplication $mail): bool {
+    Mail::assertSent(NewCareerApplication::class, function (NewCareerApplication $mail) use ($application): bool {
         $content = html_entity_decode($mail->render());
+        $mail->assertHasAttachmentFromStorageDisk('public', $application->resume_path, 'resume.pdf');
 
         return str_contains($content, 'Sydney / NSW')
             && str_contains($content, 'Australian citizen')
