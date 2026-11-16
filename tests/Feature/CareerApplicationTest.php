@@ -40,6 +40,10 @@ it('shows the requested career application choices', function () {
 it('stores career application details and notifies the applicant and admin', function () {
     Mail::fake();
     Storage::fake('public');
+    config([
+        'mail.from.address' => 'sender@example.com',
+        'mail.career_applications_address' => 'careers@example.com',
+    ]);
 
     $this->postJson(route('careers.submit'), [
         'first_name' => 'Taylor',
@@ -74,7 +78,8 @@ it('stores career application details and notifies the applicant and admin', fun
         $content = html_entity_decode($mail->render());
         $mail->assertHasAttachmentFromStorageDisk('public', $application->resume_path, 'resume.pdf');
 
-        return str_contains($content, 'Sydney / NSW')
+        return $mail->hasTo('careers@example.com')
+            && str_contains($content, 'Sydney / NSW')
             && str_contains($content, 'Australian citizen')
             && str_contains($content, 'I enjoy helping people.')
             && str_contains($content, 'Allegiance Heart & Home Care');

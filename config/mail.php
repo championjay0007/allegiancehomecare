@@ -122,4 +122,9 @@ return [
         'name' => 'Allegiance Heart & Home Care',
     ],
 
+    'career_applications_address' => env(
+        'CAREER_APPLICATIONS_EMAIL',
+        env('MAIL_FROM_ADDRESS', 'hello@example.com')
+    ),
+
 ];
